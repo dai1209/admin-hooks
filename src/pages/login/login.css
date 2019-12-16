@@ -1,0 +1,13 @@
+.login-content {
+    width: 400px;
+    height: 350px;
+    background-color: aquamarine;
+    margin: 100px auto;
+    padding: 30px;
+}
+.login-content h1 {
+    color: green;
+}
+.login-form-button {
+  width: 100%;
+}
