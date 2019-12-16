@@ -38,9 +38,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": {
-    "/api": {
-      "target": "http://192.168.1.100:5000"
-    }
-  }
+  "proxy": "http://helloui.net"
 }
