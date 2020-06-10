@@ -1,12 +1,19 @@
 import React from 'react';
-// import logo from './logo.svg';
+import {Provider} from 'react-redux'
 import './App.css';
-import RouteConfig from './router/'
+import AppRouter from 'router'
+import store from 'store'
+import {persistor} from 'store'
+import {PersistGate} from 'redux-persist/lib/integration/react';
+
 function App() {
   return (
-    <div className="App">
-      <RouteConfig />
-    </div>
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <AppRouter />
+      </PersistGate>
+      
+    </Provider>
   );
 }
 
