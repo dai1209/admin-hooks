@@ -1,4 +1,3 @@
-import produce from 'immer'
 
 import {CHANGE_MENU_FUNCTIONS} from './action'
 
