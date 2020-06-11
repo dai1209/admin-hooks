@@ -18,7 +18,7 @@ const page = {
 export default memo(({
   searchUi, setPager,pager,seatchFilter,batchDel,selectedRowKeys,rowSelection,
   loading,pagedList,total,columns, 
-  getPageList, addPermission,addClick,deletPermission
+  getPageList, addPermission,handleAdd,deletPermission
 }) => {
   const [ sorter, setSorter] = useState(sort)
   const [filter,setFilter] = useState(seatchFilter)
@@ -78,12 +78,12 @@ export default memo(({
         onFinish = {handleSearch}
       />
       <Divider />
-      {addClick ? <div style={{ marginBottom: 16 }}>
+      {handleAdd ? <div style={{ marginBottom: 16 }}>
         <Permission permission={addPermission}>
           <Button
             type="primary"
             icon={<PlusSquareOutlined />}
-            onClick={addClick}
+            onClick={handleAdd}
           >
             新增
         </Button>

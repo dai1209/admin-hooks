@@ -1,16 +1,15 @@
 import React, { memo, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Tag ,Modal} from 'antd';
+import { Tag ,Modal, notification} from 'antd';
 import {
     savePermission
 } from 'api';
 import schema from 'schema/role';
 import 'style/role-permission.css';
 import EditRolePermissionModal from './editRolePermission'
-
 import { getRoleData } from 'store/module/role/action'
 import CommonPage from 'containers/CommonPage'
-import { useCallback } from 'react';
+import { usePage } from 'hooks';
 
 
 const searchUi = Object.entries(schema.searchUiSchema)
@@ -25,16 +24,22 @@ const page = {
   total: 0
 }
 export default memo(() => {
-  const [pager,setPager] = useState(page)
-  const [ editModalVisible, setEditModalVisible ] = useState(false)
-  const [editFormData, setEditFormData] = useState({record:{}})
   const [checkedKeys,setCheckedKeys] = useState([])
 
   const loading = useSelector(({role}) => role.loading)
   const pagedList = useSelector(({role}) => role.pagedList)
   const total = useSelector(({role}) => role.total)
   const dispatch = useDispatch()
-
+  
+  const {
+    pager,
+    setPager,
+    editFormData,
+    editModalVisible,
+    setEditModalVisible,
+    handleEdit,
+    onCancel
+  } = usePage({page,dispatch,getAction:getRoleData,seatchFilter})
   const columns = [
     {
       title: '角色名称',
@@ -53,34 +58,30 @@ export default memo(() => {
       width: 120,
       render: (text, record) => {
         return <div>
-          <span style={{cursor:'pointer',color:'cyan'}} onClick={() => editRolePermission(record)}>
+          <span style={{cursor:'pointer',color:'cyan'}} onClick={() => handleEdit(record)}>
             编辑角色权限
           </span>
         </div>
       }
     }
   ]
-  const editRolePermission = (record) =>{
-    setEditFormData(record)
-    setEditModalVisible(true)
-  }
 
-  const onCancel = useCallback(() => {
+
+  const onOk = async () => {
+    const data = {
+      roleId: editFormData.record.id,
+      permissions: checkedKeys,
+      moduleId: 0
+    };
+    await savePermission(data)
     setEditModalVisible(false)
+    notification.success({
+      placement: 'bottomLeft bottomRight',
+      message: '保存成功',
+    });
     setCheckedKeys([])
-  },[])
-
-const onOk = async () => {
-  const data = {
-    roleId: editFormData.id,
-    permissions: checkedKeys,
-    moduleId: 0
-  };
-  await savePermission(data)
-  setEditModalVisible(false)
-  setCheckedKeys([])
-  dispatch(getRoleData({pageIndex:pager.current,pageSize:pager.pageSize,filter:seatchFilter}))
-}
+    dispatch(getRoleData({pageIndex:pager.current,pageSize:pager.pageSize,filter:seatchFilter}))
+  }
   return  (<>
     <CommonPage
       pager = {pager} 
@@ -98,13 +99,13 @@ const onOk = async () => {
     visible={editModalVisible}
     cancelText="关闭"
     okText="提交"
-    title={<span>编辑角色&nbsp;&nbsp;<Tag color="#2db7f5">{editFormData.name}</Tag>&nbsp;权限</span>}
+    title={<span>编辑角色&nbsp;&nbsp;<Tag color="#2db7f5">{editFormData.record.name}</Tag>&nbsp;权限</span>}
     onCancel={onCancel}
     onOk={onOk}
     destroyOnClose
   >
   <EditRolePermissionModal 
-  record = {editFormData}
+  record = {editFormData.record}
   checkedKeys = {checkedKeys}
   setCheckedKeys = {setCheckedKeys}
   />

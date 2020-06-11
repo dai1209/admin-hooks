@@ -53,7 +53,7 @@ export default (({record,checkedKeys,setCheckedKeys}) => {
   return <Tree 
       checkable
       multiple
-      defaultExpandAll
+      defaultExpandAll={true}
       checkedKeys = {checkedKeys}
       selectable
       autoExpandParent

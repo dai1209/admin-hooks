@@ -1,4 +1,4 @@
-import React, { memo, useState,useRef } from 'react';
+import React, { memo, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Popconfirm, Divider, notification, Modal } from 'antd';
 import {
@@ -10,8 +10,7 @@ import { getRoleData } from 'store/module/role/action'
 import schema from 'schema/role';
 import CommonPage from 'containers/CommonPage'
 import CommonForm from 'containers/CommonForm'
-import { useCallback } from 'react';
-
+import { usePage } from 'hooks'
 
 const searchUi = Object.entries(schema.searchUiSchema)
 const editUi = Object.entries(schema.editUiSchema)
@@ -27,10 +26,6 @@ const page = {
   total: 0
 }
 export default memo(() => {
-  const [selectedRowKeys,setSelectedRowKeys] = useState([])
-  const [pager,setPager] = useState(page)
-  const [ editModalVisible, setEditModalVisible ] = useState(false)
-  const [editFormData, setEditFormData] = useState({record:{},id:0})
 
   const loading = useSelector(({role}) => role.loading)
   const pagedList = useSelector(({role}) => role.pagedList)
@@ -38,10 +33,21 @@ export default memo(() => {
   const dispatch = useDispatch()
 
   const FormRef = useRef()
-  const rowSelection = {
+  const {
     selectedRowKeys,
-    onChange: (e)=>setSelectedRowKeys(e)
-  }
+    pager,
+    setPager,
+    editFormData,
+    editModalVisible,
+    setEditModalVisible,
+    rowSelection,
+    handleEdit,
+    handleAdd,
+    handleDel,
+    onCancel,
+    batchDel,
+  } = usePage({page,dispatch,delApi:delRole,getAction:getRoleData,delApis:delRoles,seatchFilter})
+
   const columns = [
     {
       title: '角色名称',
@@ -60,11 +66,11 @@ export default memo(() => {
       width: 120,
       render: (text, record) => {
         return <div>
-          <span style={{cursor:'pointer',color:'cyan'}} onClick={() => editRole(record)}>
+          <span style={{cursor:'pointer',color:'cyan'}} onClick={() => handleEdit(record)}>
             编辑
           </span>
           <Divider type="vertical" />
-          <Popconfirm title="确定删除?" onConfirm={() => deletRole(record.id)}>
+          <Popconfirm title="确定删除?" onConfirm={() => handleDel(record.id)}>
             <span style={{cursor:'pointer',color:'red'}} >删除</span>
           </Popconfirm>
         </div>
@@ -72,15 +78,6 @@ export default memo(() => {
     }
   ]
 
-  const editRole = (record) =>{
-    setEditFormData({record,id:1})
-    setEditModalVisible(true)
-  }
-  const addRole = () => {
-    setEditFormData({record:{},id:0})
-    setEditModalVisible(true)
-  }
-  
   const onFinish = async (values) => {
     const options = {...editFormData,...values}
     try {
@@ -95,37 +92,7 @@ export default memo(() => {
 
     }
   }
-  const deletRole = async (id) => {
-    try {
-      await delRole({ id });
-      notification.success({
-        placement: 'bottomLeft bottomRight',
-        message: '删除成功',
-      });
-      dispatch(getRoleData({pageIndex:1,pageSize:pager.pageSize,filter:seatchFilter}))
-    } catch (e) {
-
-    }
-  }
-  const onCancel = useCallback(() => {
-    setEditModalVisible(false)
-  },[])
-  const batchDel = async () => {
-  try {
-    await delRoles({
-      ids: JSON.stringify(selectedRowKeys)
-    })
-    setSelectedRowKeys([])
-    notification.success({
-      placement: 'bottomLeft bottomRight',
-      message: '删除成功',
-    });
-    setPager(c=>({...c,current:1}))
-    dispatch(getRoleData({pageIndex:1,pageSize:pager.pageSize,filter:seatchFilter}))
-  } catch (e) {
-
-  }
-  }
+ 
   return  (<>
     <CommonPage
       rowSelection = {rowSelection}
@@ -140,7 +107,7 @@ export default memo(() => {
       pagedList = {pagedList}
       total = {total}
       columns = {columns}
-      addClick = {addRole}
+      handleAdd = {handleAdd}
       addPermission = {addPermission}
       deletPermission = {deletPermission}
     />

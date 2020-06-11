@@ -6,6 +6,8 @@ function *fetchRoleData ({payload}) {
   try {
     yield put(changeRoleLoad(true))
     const { data } = yield call(getRolePagedList,payload)
+    console.log(data);
+    
     yield put(getRoleDataSuccess(data)) 
   } catch (e) {
     

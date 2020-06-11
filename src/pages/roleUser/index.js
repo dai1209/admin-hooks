@@ -1,11 +1,11 @@
-import React, { memo, useState, useCallback } from 'react';
+import React, { memo, useDispatch } from 'react';
 import { useSelector } from 'react-redux'
 import { Modal, Tag, Button } from 'antd';
 import { getRoleData } from 'store/module/role/action'
 import schema from 'schema/roleUser';
 import CommonPage from 'containers/CommonPage'
 import EditRoleUser from './editRoleUser'
-
+import { usePage } from 'hooks' 
 const searchUi = Object.entries(schema.searchUiSchema)
 const seatchFilter = {
   name:'',
@@ -18,13 +18,18 @@ const page = {
   total: 0
 }
 export default memo(() => {
-  const [pager,setPager] = useState(page)
-  const [ editModalVisible, setEditModalVisible ] = useState(false)
-  const [editFormData, setEditFormData] = useState({})
 
   const loading = useSelector(({role}) => role.loading)
   const pagedList = useSelector(({role}) => role.pagedList)
   const total = useSelector(({role}) => role.total)
+  const {
+    pager,
+    setPager,
+    editFormData,
+    editModalVisible,
+    handleEdit,
+    onCancel,
+  } = usePage({page,getAction:getRoleData,seatchFilter})
 
   const columns = [
     {
@@ -42,19 +47,11 @@ export default memo(() => {
         dataIndex: 'id',
         fixed: 'right',
         width: 120,
-        render: (text, record) => <span style={{cursor:'pointer',color:'cyan'}} onClick={() => editRoleUser(record)}>
+        render: (text, record) => <span style={{cursor:'pointer',color:'cyan'}} onClick={() => handleEdit(record)}>
           用户列表
         </span>
     }]
 
-  const editRoleUser = (record) =>{
-    setEditFormData(record)
-    setEditModalVisible(true)
-  }
-  
-  const onCancel = useCallback(() => {
-    setEditModalVisible(false)
-  },[])
 
   return  (<>
     <CommonPage
@@ -72,14 +69,14 @@ export default memo(() => {
     visible={editModalVisible}
     width={1000}
     cancelText="关闭"
-    title={<span>编辑角色&nbsp;&nbsp;<Tag color="#2db7f5">{editFormData.name}</Tag>&nbsp;下用户</span>}
+    title={<span>编辑角色&nbsp;&nbsp;<Tag color="#2db7f5">{editFormData.record.name}</Tag>&nbsp;下用户</span>}
     onCancel={onCancel}
     footer={[
       <Button key="back" onClick={onCancel}>关闭</Button>,
     ]}
     destroyOnClose
     >
-      <EditRoleUser record={editFormData} />
+      <EditRoleUser record={editFormData.record} />
    </Modal>
   </>)
 })

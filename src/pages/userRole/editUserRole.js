@@ -13,11 +13,12 @@ const page = {
   pageSize: 10,
   total: 0
 }
+
 export default memo((props) => {
   const seatchFilter = useMemo(() =>({
     name:'',
     email: "",
-    roleId: props.record.id
+    userId: props.record.id
   }),[props.record])
   const [pager,setPager] = useState(page)
   const dispatch = useDispatch()
@@ -65,8 +66,8 @@ export default memo((props) => {
 
   const modifyRoleUser = async (record,action) => {
     await editRoleUser({
-      roleId: props.record.id,
-      userId: record.id,
+      userId: props.record.id,
+      roleId: record.id,
       action,
   });
   if (action === 1) {
@@ -80,7 +81,7 @@ export default memo((props) => {
           message: '移除成功',
       });
   }
-  dispatch(getRoleData({pageIndex:page.current,pageSize:pager.pageSize,filter:seatchFilter}))
+  dispatch(getRoleData({pageIndex:1,pageSize:pager.pageSize,filter:seatchFilter,}))
   }
  
   return  (<>

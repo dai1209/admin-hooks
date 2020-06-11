@@ -5,6 +5,7 @@ import { getUserList } from 'store/module/users/action'
 import schema from 'schema/userRole';
 import CommonPage from 'containers/CommonPage'
 import EditUserRole from './editUserRole'
+import { usePage } from 'hooks'
 
 const searchUi = Object.entries(schema.searchUiSchema)
 const seatchFilter = {
@@ -17,15 +18,21 @@ const page = {
   pageSize: 10,
   total: 0
 }
+
 export default memo(() => {
-  const [pager,setPager] = useState(page)
-  const [ editModalVisible, setEditModalVisible ] = useState(false)
-  const [editFormData, setEditFormData] = useState({})
 
   const loading = useSelector(({users}) => users.loading)
   const pagedList = useSelector(({users}) => users.pagedList)
   const total = useSelector(({users}) => users.total)
 
+  const {
+    pager,
+    setPager,
+    editFormData,
+    editModalVisible,
+    handleEdit,
+    onCancel
+  } = usePage({page,getAction:getUserList,seatchFilter})
   const columns = [
     {
         title: '账号名称',
@@ -52,19 +59,10 @@ export default memo(() => {
         dataIndex: 'id',
         fixed: 'right',
         width: 120,
-        render: (text, record) => <span style={{cursor:'pointer',color:'cyan'}} onClick={() => editUserRole(record)}>
+        render: (text, record) => <span style={{cursor:'pointer',color:'cyan'}} onClick={() => handleEdit(record)}>
             角色列表
           </span>
     }]
-
-  const editUserRole = (record) =>{
-    setEditFormData(record)
-    setEditModalVisible(true)
-  }
-  
-  const onCancel = useCallback(() => {
-    setEditModalVisible(false)
-  },[])
 
   return  (<>
     <CommonPage
@@ -82,14 +80,14 @@ export default memo(() => {
     visible={editModalVisible}
     width={1000}
     cancelText="关闭"
-    title={<span>编辑用户&nbsp;&nbsp;<Tag color="#2db7f5">{editFormData.name}</Tag>&nbsp;所属用户</span>}
+    title={<span>编辑用户&nbsp;&nbsp;<Tag color="#2db7f5">{editFormData.record.name}</Tag>&nbsp;所属角色</span>}
     onCancel={onCancel}
     footer={[
       <Button key="back" onClick={onCancel}>关闭</Button>,
     ]}
     destroyOnClose
     >
-      <EditUserRole record={editFormData} />
+      <EditUserRole record={editFormData.record} />
    </Modal>
   </>)
 })
