@@ -27,7 +27,7 @@ export default memo(({
   const dispatch = useDispatch()
   const searchRef = useRef()
   const handleSearch = (filter) => {
-    setFilter(filter)
+    setFilter(c=>({...c,...filter}))
     setPager(c=>({...c,current:1}))
     const query = {
         pageIndex: 1,
@@ -55,6 +55,8 @@ export default memo(({
     dispatch(getPageList(query))
   }
   useEffect(()=>{
+    console.log(1);
+    
     dispatch(getPageList({pageIndex:page.current,pageSize:page.pageSize,filter:seatchFilter}))
   },[dispatch,getPageList,seatchFilter])
 

@@ -2,25 +2,26 @@ import React, { memo, useState,useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Popconfirm, Divider, notification, Modal } from 'antd';
 import {
-    delRole,
-    delRoles,
-    saveRole
+    delUser,
+    delUsers,
+    saveUser
 } from 'api';
 import { getRoleData } from 'store/module/role/action'
-import schema from 'schema/role';
+import schema from 'schema/user';
 import CommonPage from 'containers/CommonPage'
 import CommonForm from 'containers/CommonForm'
 import { useCallback } from 'react';
+import { getUserList } from 'store/module/users/action';
 
 
 const searchUi = Object.entries(schema.searchUiSchema)
 const editUi = Object.entries(schema.editUiSchema)
 const seatchFilter = {
   name:'',
-  code:''
+  email:''
 }
-const addPermission = ["role_edit"]
-const deletPermission =["role_del"]
+const addPermission = ["user_edit"]
+const deletPermission =["user_del"]
 const page = {
   current: 1,
   pageSize: 10,
@@ -32,9 +33,9 @@ export default memo(() => {
   const [ editModalVisible, setEditModalVisible ] = useState(false)
   const [editFormData, setEditFormData] = useState({record:{},id:0})
 
-  const loading = useSelector(({role}) => role.loading)
-  const pagedList = useSelector(({role}) => role.pagedList)
-  const total = useSelector(({role}) => role.total)
+  const loading = useSelector(({users}) => users.loading)
+  const pagedList = useSelector(({users}) => users.pagedList)
+  const total = useSelector(({users}) => users.total)
   const dispatch = useDispatch()
 
   const FormRef = useRef()
@@ -44,39 +45,48 @@ export default memo(() => {
   }
   const columns = [
     {
-      title: '角色名称',
+      title: '账号名称',
       dataIndex: 'name',
       sorter: true
-  },
-  {
-      title: '角色编码',
-      dataIndex: 'code',
+    },
+    {
+      title: '用户名称',
+      dataIndex: 'trueName',
       sorter: true
-  },
-  {
+    },
+    {
+      title: '用户邮箱',
+      dataIndex: 'email',
+      sorter: true
+    },
+    {
+      title: 'phone',
+      dataIndex: 'phone',
+      sorter: true
+    },
+    {
       title: '操作',
       dataIndex: 'id',
       fixed: 'right',
       width: 120,
       render: (text, record) => {
         return <div>
-          <span style={{cursor:'pointer',color:'cyan'}} onClick={() => editRole(record)}>
+          <span style={{cursor:'pointer',color:'cyan'}} onClick={() => editUser(record)}>
             编辑
           </span>
           <Divider type="vertical" />
-          <Popconfirm title="确定删除?" onConfirm={() => deletRole(record.id)}>
+          <Popconfirm title="确定删除?" onConfirm={() => deletUser(record.id)}>
             <span style={{cursor:'pointer',color:'red'}} >删除</span>
           </Popconfirm>
         </div>
       }
-    }
-  ]
-
-  const editRole = (record) =>{
+    }]
+  
+  const editUser = (record) =>{
     setEditFormData({record,id:1})
     setEditModalVisible(true)
   }
-  const addRole = () => {
+  const addUser = () => {
     setEditFormData({record:{},id:0})
     setEditModalVisible(true)
   }
@@ -84,25 +94,25 @@ export default memo(() => {
   const onFinish = async (values) => {
     const options = {...editFormData,...values}
     try {
-      await saveRole(options)
+      await saveUser(options)
       setEditModalVisible(false)
       notification.success({
         placement: 'bottomLeft bottomRight',
         message: '保存成功',
       });
-      dispatch(getRoleData({pageIndex:1,pageSize:pager.pageSize,filter:seatchFilter}))
+      dispatch(getUserList({pageIndex:1,pageSize:pager.pageSize,filter:seatchFilter}))
     }catch (e){
 
     }
   }
-  const deletRole = async (id) => {
+  const deletUser = async (id) => {
     try {
-      await delRole({ id });
+      await delUser({ id });
       notification.success({
         placement: 'bottomLeft bottomRight',
         message: '删除成功',
       });
-      dispatch(getRoleData({pageIndex:1,pageSize:pager.pageSize,filter:seatchFilter}))
+      dispatch(getUserList({pageIndex:1,pageSize:pager.pageSize,filter:seatchFilter}))
     } catch (e) {
 
     }
@@ -112,7 +122,7 @@ export default memo(() => {
   },[])
   const batchDel = async () => {
   try {
-    await delRoles({
+    await delUsers({
       ids: JSON.stringify(selectedRowKeys)
     })
     setSelectedRowKeys([])
@@ -135,12 +145,12 @@ export default memo(() => {
       setPager = {setPager}
       seatchFilter = {seatchFilter}
       searchUi = {searchUi}
-      getPageList = {getRoleData}
+      getPageList = {getUserList}
       loading = {loading}
       pagedList = {pagedList}
       total = {total}
       columns = {columns}
-      addClick = {addRole}
+      addClick = {addUser}
       addPermission = {addPermission}
       deletPermission = {deletPermission}
     />
@@ -148,7 +158,7 @@ export default memo(() => {
     visible={editModalVisible}
     cancelText="关闭"
     okText="提交"
-    title={editFormData.id? '编辑角色' : '新增角色'}
+    title={editFormData.id? '编辑用户' : '新增用户'}
     onCancel={onCancel}
     onOk={()=>FormRef.current.submit()}
     destroyOnClose

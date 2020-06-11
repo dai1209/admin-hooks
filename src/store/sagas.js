@@ -4,6 +4,7 @@ import functional from './module/function/saga'
 import menu from './module/menu/saga'
 import role from './module/role/saga'
 import rolePermission from './module/rolePermission/saga'
+import users from './module/users/saga'
 
 
 
@@ -13,5 +14,6 @@ export default [
   functional,
   menu,
   role,
-  rolePermission
+  rolePermission,
+  users
 ]

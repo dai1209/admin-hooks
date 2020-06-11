@@ -1,9 +1,10 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import { Row, Col, Button, Form} from 'antd'
 import { UpOutlined, DownOutlined } from '@ant-design/icons'
 import FormList from 'components/BaseForm'
 import { forwardRef } from 'react'
-// props = onFinish ref data
+
+
 export default forwardRef((props,ref) => {
   const [expand,setExpand] = useState(true)
   const handleReset = ()=>{

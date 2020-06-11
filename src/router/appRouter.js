@@ -31,7 +31,7 @@ const routerConfig = [
   },
   {
     path:'/app/user/index',
-    component: lazy(()=>import('pages/user'))
+    component: lazy(()=>import('pages/Users'))
   },
   {
     path:'/app/requestlog',
@@ -49,18 +49,18 @@ const routerConfig = [
     path:'/app/example/permissiontest',
     component: lazy(()=>import('pages/example/PermissionTest'))
   },
-  {
-    path:'/app/example/searchform',
-    component: lazy(()=>import('pages/example/JsonForm/SearchForm'))
-  },
-  {
-    path:'/app/example/commonform',
-    component: lazy(()=>import('pages/example/JsonForm/CommonForm'))
-  },
-  {
-    path:'/app/example/dynamicform',
-    component: lazy(()=>import('pages/example/JsonForm/DynamicForm'))
-  },
+  // {
+  //   path:'/app/example/searchform',
+  //   component: lazy(()=>import('pages/example/JsonForm/SearchForm'))
+  // },
+  // {
+  //   path:'/app/example/commonform',
+  //   component: lazy(()=>import('pages/example/JsonForm/CommonForm'))
+  // },
+  // {
+  //   path:'/app/example/dynamicform',
+  //   component: lazy(()=>import('pages/example/JsonForm/DynamicForm'))
+  // },
 ]
 
 export default ()=>(

@@ -5,7 +5,7 @@ import functional from './module/function/reducer'
 import menu from './module/menu/reducer'
 import role from './module/role/reducer'
 import rolePermission from './module/rolePermission/reducer'
-
+import users from "./module/users/reducer";
 
 
 export default combineReducers({
@@ -14,5 +14,6 @@ export default combineReducers({
   functional,
   menu,
   role,
-  rolePermission
+  rolePermission,
+  users
 })

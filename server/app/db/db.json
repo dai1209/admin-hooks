@@ -28,6 +28,15 @@
       "phone": "123456789",
       "password": "123456",
       "id": "01de2fed-2273-4752-8904-9df34428b9ed"
+    },
+    {
+      "record": {},
+      "id": "6c7973e6-5786-43e4-ad19-1b8646c3e14c",
+      "name": "兽王",
+      "trueName": "0-16",
+      "email": "1234567@163.com",
+      "phone": "123456",
+      "password": "123456"
     }
   ],
   "admin": [
@@ -551,7 +560,8 @@
       "record": {},
       "id": "5f055aa1-2a3c-4f8f-8ed4-9fc639e19f1a",
       "name": "单元测试",
-      "code": "110"
+      "code": "110",
+      "isAdd": 2
     }
   ],
   "roleUser": [
@@ -573,15 +583,15 @@
     },
     {
       "userId": "01de2fed-2273-4752-8904-9df34428b9ed",
-      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7"
-    },
-    {
-      "userId": "01de2fed-2273-4752-8904-9df34428b9ed",
       "roleId": "9fc587ff-3543-4f58-93ab-15f64d3d19e5"
     },
     {
       "userId": "01de2fed-2273-4752-8904-9df34428b9ed",
       "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e"
+    },
+    {
+      "userId": "92e6b921-d820-4ea6-9b57-95b1378c961e",
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7"
     }
   ],
   "permission": [

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Row, Col, Switch, Button, notification } from 'antd';
-import PermissionContainer from 'utils/permission';
+import PermissionContainer from 'containers/Permission';
 import { getTopPostByQuery } from 'api';
 
 class PermissionTest extends React.PureComponent {

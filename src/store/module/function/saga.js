@@ -9,9 +9,7 @@ function *fetchFunctionList ({payload}) {
     console.log(payload)
     yield put(changeLoading(true))
    const { data } = yield call(getFunctionPagedList,payload)
-   yield put(getFunctionDataSuccess(data))
-   console.log(data);
-   
+   yield put(getFunctionDataSuccess(data)) 
   }catch (e) {
     console.log(e);
     
