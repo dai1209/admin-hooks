@@ -50,7 +50,7 @@ export default memo((props) => {
       dataIndex: 'isAdd',
       align: 'center',
       render: (text, record) => (
-        record.isAdd == 1 ? <Badge status="success" /> : <Badge status="error" />
+        record.isAdd === 1 ? <Badge status="success" /> : <Badge status="error" />
       )
     },
     {
