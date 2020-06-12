@@ -1,4 +1,4 @@
-import React, { memo, useState, useCallback } from 'react';
+import React, { memo } from 'react';
 import { useSelector } from 'react-redux'
 import { Modal, Tag, Button } from 'antd';
 import { getUserList } from 'store/module/users/action'
@@ -24,15 +24,14 @@ export default memo(() => {
   const loading = useSelector(({users}) => users.loading)
   const pagedList = useSelector(({users}) => users.pagedList)
   const total = useSelector(({users}) => users.total)
-
   const {
-    pager,
-    setPager,
+    handleSearch,
+    onTableChange,
     editFormData,
     editModalVisible,
     handleEdit,
     onCancel
-  } = usePage({page,getAction:getUserList,seatchFilter})
+  } = usePage({page,getAction:getUserList,seatchFilter,total})
   const columns = [
     {
         title: '账号名称',
@@ -63,17 +62,18 @@ export default memo(() => {
             角色列表
           </span>
     }]
+  //   searchUi, pagination,onTableChange,batchDel,selectedRowKeys,rowSelection,
+  // loading,pagedList,columns, 
+  // handleSearch, addPermission,handleAdd,deletPermission
 
   return  (<>
     <CommonPage
-      pager = {pager} 
-      setPager = {setPager}
       seatchFilter = {seatchFilter}
+      handleSearch = {handleSearch}
+      onTableChange = {onTableChange}
       searchUi = {searchUi}
-      getPageList = {getUserList}
       loading = {loading}
       pagedList = {pagedList}
-      total = {total}
       columns = {columns}
     />
     <Modal

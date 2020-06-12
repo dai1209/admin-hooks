@@ -1,6 +1,6 @@
 import React, { memo, useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
-import { Popconfirm, Divider, notification, Modal } from 'antd';
+import { useSelector } from 'react-redux'
+import { Popconfirm, Divider, Modal } from 'antd';
 import {
     delRole,
     delRoles,
@@ -30,23 +30,23 @@ export default memo(() => {
   const loading = useSelector(({role}) => role.loading)
   const pagedList = useSelector(({role}) => role.pagedList)
   const total = useSelector(({role}) => role.total)
-  const dispatch = useDispatch()
 
   const FormRef = useRef()
   const {
     selectedRowKeys,
-    pager,
-    setPager,
+    pagination,
+    handleSearch,
+    onTableChange,
     editFormData,
     editModalVisible,
-    setEditModalVisible,
     rowSelection,
     handleEdit,
     handleAdd,
     handleDel,
+    handleFinish,
     onCancel,
     batchDel,
-  } = usePage({page,dispatch,delApi:delRole,getAction:getRoleData,delApis:delRoles,seatchFilter})
+  } = usePage({page,delApi:delRole,getAction:getRoleData,delApis:delRoles,saveApi:saveRole,seatchFilter,total})
 
   const columns = [
     {
@@ -80,32 +80,20 @@ export default memo(() => {
 
   const onFinish = async (values) => {
     const options = {...editFormData,...values}
-    try {
-      await saveRole(options)
-      setEditModalVisible(false)
-      notification.success({
-        placement: 'bottomLeft bottomRight',
-        message: '保存成功',
-      });
-      dispatch(getRoleData({pageIndex:1,pageSize:pager.pageSize,filter:seatchFilter}))
-    }catch (e){
-
-    }
+    handleFinish(options)
   }
  
   return  (<>
     <CommonPage
       rowSelection = {rowSelection}
       selectedRowKeys = {selectedRowKeys}
+      pagination ={pagination}
+      onTableChange = {onTableChange}
+      handleSearch = {handleSearch}
       batchDel = {batchDel}
-      pager = {pager} 
-      setPager = {setPager}
-      seatchFilter = {seatchFilter}
       searchUi = {searchUi}
-      getPageList = {getRoleData}
       loading = {loading}
       pagedList = {pagedList}
-      total = {total}
       columns = {columns}
       handleAdd = {handleAdd}
       addPermission = {addPermission}

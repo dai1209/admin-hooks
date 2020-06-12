@@ -10,18 +10,6 @@
       "__index": 0
     },
     {
-      "name": "test",
-      "trueName": "测试",
-      "password": "123456",
-      "id": "54a3488f-3c94-489e-bcd0-3f2631991f5e"
-    },
-    {
-      "name": "website_admin",
-      "trueName": "网站模块管理员A",
-      "password": "123456",
-      "id": "92e6b921-d820-4ea6-9b57-95b1378c961e"
-    },
-    {
       "name": "hooks",
       "trueName": "react",
       "email": "123456@136.com",
@@ -36,6 +24,13 @@
       "trueName": "0-16",
       "email": "1234567@163.com",
       "phone": "123456",
+      "password": "123456"
+    },
+    {
+      "record": {},
+      "id": "22faec5b-6fcf-43f8-bedd-714c36728c67",
+      "name": "超级管理员",
+      "trueName": "react",
       "password": "123456"
     }
   ],
@@ -524,13 +519,6 @@
       "moduleId": 14,
       "module": "职位管理",
       "id": "d07dbc07-9692-41bb-83fb-7521052ed1b5"
-    },
-    {
-      "code": "110",
-      "moduleId": "ef59de52-9995-49bc-a8ab-fb41093639c9",
-      "name": "测试",
-      "module": "审计日志",
-      "id": "0c39db12-96de-418b-afb9-981f2744cf5f"
     }
   ],
   "role": [
@@ -547,7 +535,7 @@
       "code": "role_website_admin",
       "description": "网站模块管理员",
       "id": "9fc587ff-3543-4f58-93ab-15f64d3d19e5",
-      "isAdd": 1,
+      "isAdd": 2,
       "__index": 1
     },
     {
@@ -561,13 +549,7 @@
       "id": "5f055aa1-2a3c-4f8f-8ed4-9fc639e19f1a",
       "name": "单元测试",
       "code": "110",
-      "isAdd": 2
-    },
-    {
-      "name": "财务",
-      "code": "1234",
-      "id": "bbbae665-ba5d-4e17-9d2a-b3b5ccfc814c",
-      "isAdd": 2
+      "isAdd": 1
     }
   ],
   "roleUser": [
@@ -596,12 +578,24 @@
       "roleId": "6c7973e6-5786-43e4-ad19-1b8646c3e14c"
     },
     {
+      "userId": "6c7973e6-5786-43e4-ad19-1b8646c3e14c",
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7"
+    },
+    {
       "userId": "1",
-      "roleId": "9fc587ff-3543-4f58-93ab-15f64d3d19e5"
+      "roleId": "10c991ce-4d4d-4af8-bb9e-a824c4c8d85c"
     },
     {
       "userId": "1",
       "roleId": "5f055aa1-2a3c-4f8f-8ed4-9fc639e19f1a"
+    },
+    {
+      "userId": "1",
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7"
+    },
+    {
+      "userId": "54a3488f-3c94-489e-bcd0-3f2631991f5e",
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7"
     }
   ],
   "permission": [

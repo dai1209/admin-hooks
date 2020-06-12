@@ -37,7 +37,7 @@ class userService extends Service {
     }
     if (filter.email) {
       resultList = _.filter(resultList, o => {
-        return o.email.indexOf(filter.email) > -1;
+        return o.email && o.email.indexOf(filter.email) > -1;
       });
     }
     if (filter.roleId) {

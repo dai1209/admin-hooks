@@ -1,12 +1,11 @@
 import React, { memo, useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
-import { Popconfirm, Divider, notification, Modal } from 'antd';
+import { useSelector } from 'react-redux'
+import { Popconfirm, Divider, Modal } from 'antd';
 import {
     delUser,
     delUsers,
     saveUser
 } from 'api';
-import { getRoleData } from 'store/module/role/action'
 import schema from 'schema/user';
 import CommonPage from 'containers/CommonPage'
 import CommonForm from 'containers/CommonForm'
@@ -31,24 +30,24 @@ export default memo(() => {
   const loading = useSelector(({users}) => users.loading)
   const pagedList = useSelector(({users}) => users.pagedList)
   const total = useSelector(({users}) => users.total)
-  const dispatch = useDispatch()
 
   const FormRef = useRef()
 
   const {
     selectedRowKeys,
-    pager,
-    setPager,
+    pagination,
+    handleSearch,
+    onTableChange,
     editFormData,
     editModalVisible,
-    setEditModalVisible,
     rowSelection,
     handleEdit,
     handleAdd,
     handleDel,
+    handleFinish,
     onCancel,
     batchDel,
-  } = usePage({page,dispatch,delApi:delUser,getAction:getRoleData,delApis:delUsers,seatchFilter})
+  } = usePage({page,delApi:delUser,getAction:getUserList,delApis:delUsers,saveApi:saveUser,seatchFilter,total})
   const columns = [
     {
       title: '账号名称',
@@ -90,32 +89,20 @@ export default memo(() => {
   
   const onFinish = async (values) => {
     const options = {...editFormData,...values}
-    try {
-      await saveUser(options)
-      setEditModalVisible(false)
-      notification.success({
-        placement: 'bottomLeft bottomRight',
-        message: '保存成功',
-      });
-      dispatch(getUserList({pageIndex:1,pageSize:pager.pageSize,filter:seatchFilter}))
-    }catch (e){
-
-    }
+    handleFinish(options)
   }
- 
+
   return  (<>
     <CommonPage
       rowSelection = {rowSelection}
       selectedRowKeys = {selectedRowKeys}
+      pagination ={pagination}
+      onTableChange = {onTableChange}
+      handleSearch = {handleSearch}
       batchDel = {batchDel}
-      pager = {pager} 
-      setPager = {setPager}
-      seatchFilter = {seatchFilter}
       searchUi = {searchUi}
-      getPageList = {getUserList}
       loading = {loading}
       pagedList = {pagedList}
-      total = {total}
       columns = {columns}
       handleAdd = {handleAdd}
       addPermission = {addPermission}

@@ -1,19 +1,62 @@
-import { useState,useCallback } from 'react'
+import { useState,useCallback,useMemo,useEffect } from 'react'
 
 import {notification} from 'antd'
+import { useDispatch } from 'react-redux'
+const sort = {
+  field: '',
+  order: ''
+}
 
 
-export function usePage({page,dispatch,delApi,getAction,delApis,seatchFilter}) {
+
+export function usePage({page,delApi,getAction,delApis,saveApi,seatchFilter,total,toggleApi}) {
 
   const [selectedRowKeys,setSelectedRowKeys] = useState([])
   const [pager,setPager] = useState(page)
   const [ editModalVisible, setEditModalVisible ] = useState(false)
   const [editFormData, setEditFormData] = useState({record:{},id:0})
+  const [ sorter, setSorter] = useState(sort)
+  const [filter,setFilter] = useState(seatchFilter)
+  const dispatch = useDispatch()
+
+  const handleSearch = useCallback((filter) => {
+    setFilter(c=>({...c,...filter}))
+    setPager(c=>({...c,current:1}))
+   },[])
+   
+   const onTableChange = useCallback(({current,pageSize}, filters, sorter) => {
+    setPager({
+      current,
+      pageSize
+    })
+    setSorter(sorter)
+  },[])
+
+  useEffect(()=>{
+    const query = {
+      pageIndex:pager.current,
+      pageSize:pager.pageSize,
+      sortBy: sorter.field,
+      descending: sorter.order === 'descend',
+      filter:filter
+    }
+    dispatch(getAction(query))
+  },[dispatch,getAction,seatchFilter,pager,sorter,filter])
+
+  const pagination = useMemo(()=>({
+    current:pager.current,
+    pageSize: pager.pageSize,
+    total,
+    showQuickJumper: true,
+    showSizeChanger: true,
+    showTotal: total => `Total ${total} items`
+  }),[pager,total])
   
-  const rowSelection = {
+  
+  const rowSelection = useMemo(() => ({
     selectedRowKeys,
     onChange: (e)=>setSelectedRowKeys(e)
-  }
+  }),[selectedRowKeys])
   const handleEdit = useCallback((record) =>{
     setEditFormData({record,id:1})
     setEditModalVisible(true)
@@ -30,15 +73,27 @@ export function usePage({page,dispatch,delApi,getAction,delApis,seatchFilter}) {
         placement: 'bottomLeft bottomRight',
         message: '删除成功',
       });
-      dispatch(getAction({pageIndex:1,pageSize:pager.pageSize,filter:seatchFilter}))
+      setPager(c=>({...c,current:1}))
     } catch (e) {
     }
-  },[dispatch,pager,delApi,getAction,seatchFilter])
+  },[delApi])
+  const handleFinish = useCallback(async (options) => {
+    try {
+      await saveApi(options)
+      setEditModalVisible(false)
+      notification.success({
+        placement: 'bottomLeft bottomRight',
+        message: '保存成功',
+      });
+      setPager(c=>({...c,current:1}))
+    } catch (e) {
 
-  const onCancel = () => {
+    }
+  },[saveApi])
+  const onCancel = useCallback(() => {
     setEditModalVisible(false)
-  }
-  const batchDel = async () => {
+  },[setEditModalVisible])
+  const batchDel = useCallback(async () => {
     try {
       await delApis({
         ids: JSON.stringify(selectedRowKeys)
@@ -49,26 +104,49 @@ export function usePage({page,dispatch,delApi,getAction,delApis,seatchFilter}) {
         message: '删除成功',
       });
       setPager(c=>({...c,current:1}))
-      dispatch(getAction({pageIndex:1,pageSize:pager.pageSize,filter:seatchFilter}))
     } catch (e) {
 
     }
+  },[delApis,selectedRowKeys])  
+
+  const handleToggle = async (options,action) => {
+    try{ 
+      await toggleApi(options);
+      if (action === 1) {
+        notification.success({
+          placement: 'bottomLeft bottomRight',
+          message: '添加成功',
+        });
+      } else {
+        notification.success({
+          placement: 'bottomLeft bottomRight',
+          message: '移除成功',
+        });
+      }
+    } catch (e) {
+
+    }
+    setFilter(c=>({...c}))
   }
+
+
 
   return {
     selectedRowKeys,
-    setSelectedRowKeys,
     pager,
-    setPager,
+    handleSearch,
+    onTableChange,
     editFormData,
-    setEditFormData,
     editModalVisible,
     setEditModalVisible,
     rowSelection,
     handleEdit,
     handleAdd,
     handleDel,
+    handleFinish,
     onCancel,
     batchDel,
+    pagination,
+    handleToggle
   }
 }

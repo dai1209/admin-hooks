@@ -1,4 +1,4 @@
-import React, { memo, useDispatch } from 'react';
+import React, { memo } from 'react';
 import { useSelector } from 'react-redux'
 import { Modal, Tag, Button } from 'antd';
 import { getRoleData } from 'store/module/role/action'
@@ -23,13 +23,14 @@ export default memo(() => {
   const pagedList = useSelector(({role}) => role.pagedList)
   const total = useSelector(({role}) => role.total)
   const {
-    pager,
-    setPager,
+    handleSearch,
+    onTableChange,
+    pagination,
     editFormData,
     editModalVisible,
     handleEdit,
     onCancel,
-  } = usePage({page,getAction:getRoleData,seatchFilter})
+  } = usePage({page,getAction:getRoleData,seatchFilter,total})
 
   const columns = [
     {
@@ -55,14 +56,12 @@ export default memo(() => {
 
   return  (<>
     <CommonPage
-      pager = {pager} 
-      setPager = {setPager}
-      seatchFilter = {seatchFilter}
+      handleSearch = {handleSearch}
+      onTableChange = {onTableChange}
+      pagination = {pagination}
       searchUi = {searchUi}
-      getPageList = {getRoleData}
       loading = {loading}
       pagedList = {pagedList}
-      total = {total}
       columns = {columns}
     />
     <Modal

@@ -1,10 +1,11 @@
-import React, { memo, useState, useMemo } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
-import { notification,Badge } from 'antd';
+import React, { memo, useMemo } from 'react';
+import { useSelector} from 'react-redux'
+import { Badge } from 'antd';
 import { editRoleUser } from 'api';
 import { getRoleData } from 'store/module/role/action'
 import schema from 'schema/roleUser';
 import CommonPage from 'containers/CommonPage'
+import { usePage } from 'hooks';
 
 const searchUi = Object.entries(schema.searchUiSchema)
 
@@ -20,8 +21,6 @@ export default memo((props) => {
     email: "",
     userId: props.record.id
   }),[props.record])
-  const [pager,setPager] = useState(page)
-  const dispatch = useDispatch()
   const pagedList = useSelector(({role}) => role.pagedList)
   const total = useSelector(({role}) => role.total)
 
@@ -54,46 +53,39 @@ export default memo((props) => {
         width: 120,
         render: (text, record) => (
           record.isAdd === 1 ?
-            <span onClick={() => modifyRoleUser(record, 0)} style={{color:'#f5222d'}} >
+            <span onClick={() => modifyRoleUser(record, 0)} style={{color:'#f5222d',cursor:'pointer'}} >
               移除
             </span>
             :
-            <span onClick={() => modifyRoleUser(record, 1)} style={{color:'cyan'}} >
+            <span onClick={() => modifyRoleUser(record, 1)} style={{color:'cyan', cursor:'pointer'}} >
               添加
             </span>
         )
     }]
 
+  const {
+    handleSearch,
+    onTableChange,
+    pagination,
+    handleToggle
+  } = usePage({page,getAction:getRoleData,seatchFilter,total,toggleApi:editRoleUser})
   const modifyRoleUser = async (record,action) => {
-    await editRoleUser({
+    const options = {
       userId: props.record.id,
       roleId: record.id,
       action,
-  });
-  if (action === 1) {
-      notification.success({
-          placement: 'bottomLeft bottomRight',
-          message: '添加成功',
-      });
-  } else {
-      notification.success({
-          placement: 'bottomLeft bottomRight',
-          message: '移除成功',
-      });
+    }
+    handleToggle(options,action)
   }
-  dispatch(getRoleData({pageIndex:1,pageSize:pager.pageSize,filter:seatchFilter,}))
-  }
- 
+
   return  (<>
     <CommonPage
-      pager = {pager} 
-      setPager = {setPager}
-      seatchFilter = {seatchFilter}
+      handleSearch = {handleSearch}
+      pagination={pagination}
       searchUi = {searchUi}
-      getPageList = {getRoleData}
+      onChange={onTableChange}
       // loading = {loading}
       pagedList = {pagedList}
-      total = {total}
       columns = {columns}
     />
   </>)

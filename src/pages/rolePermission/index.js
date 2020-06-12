@@ -1,6 +1,6 @@
 import React, { memo, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
-import { Tag ,Modal, notification} from 'antd';
+import { useSelector } from 'react-redux'
+import { Tag ,Modal } from 'antd';
 import {
     savePermission
 } from 'api';
@@ -29,17 +29,17 @@ export default memo(() => {
   const loading = useSelector(({role}) => role.loading)
   const pagedList = useSelector(({role}) => role.pagedList)
   const total = useSelector(({role}) => role.total)
-  const dispatch = useDispatch()
   
   const {
-    pager,
-    setPager,
+    handleSearch,
+    onTableChange,
+    pagination,
     editFormData,
     editModalVisible,
-    setEditModalVisible,
     handleEdit,
+    handleFinish,
     onCancel
-  } = usePage({page,dispatch,getAction:getRoleData,seatchFilter})
+  } = usePage({page,getAction:getRoleData,saveApi:savePermission,seatchFilter,total})
   const columns = [
     {
       title: '角色名称',
@@ -65,27 +65,20 @@ export default memo(() => {
       }
     }
   ]
-
-
   const onOk = async () => {
     const data = {
       roleId: editFormData.record.id,
       permissions: checkedKeys,
       moduleId: 0
     };
-    await savePermission(data)
-    setEditModalVisible(false)
-    notification.success({
-      placement: 'bottomLeft bottomRight',
-      message: '保存成功',
-    });
+    handleFinish(data)
     setCheckedKeys([])
-    dispatch(getRoleData({pageIndex:pager.current,pageSize:pager.pageSize,filter:seatchFilter}))
   }
   return  (<>
     <CommonPage
-      pager = {pager} 
-      setPager = {setPager}
+      handleSearch = { handleSearch }
+      onTableChange = { onTableChange }
+      pagination = { pagination }
       seatchFilter = {seatchFilter}
       searchUi = {searchUi}
       getPageList = {getRoleData}

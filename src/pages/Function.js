@@ -1,6 +1,6 @@
 import React, { memo, useMemo, useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Popconfirm, Divider, notification, Modal } from 'antd';
+import { useSelector } from 'react-redux';
+import { Popconfirm, Divider, Modal } from 'antd';
 import {
     delFunction,
     delFunctions,
@@ -12,8 +12,6 @@ import * as util from 'utils/util';
 import CommonPage from 'containers/CommonPage'
 import CommonForm from 'containers/CommonForm'
 import { usePage } from 'hooks'
-
-
 
 const searchUi = Object.entries(schema.searchUiSchema)
 const editUi = Object.entries(schema.editUiSchema)
@@ -35,24 +33,23 @@ export default memo(() => {
   const pagedList = useSelector(({functional}) => functional.pagedList)
   const total = useSelector(({functional}) => functional.total)
   const menuList = useSelector(({menu}) => menu.menuList)
-  const dispatch = useDispatch()
 
   const FormRef = useRef()
   const {
     selectedRowKeys,
-    pager,
-    setPager,
+    pagination,
+    handleSearch,
+    onTableChange,
     editFormData,
     editModalVisible,
-    setEditModalVisible,
     rowSelection,
     handleEdit,
     handleAdd,
     handleDel,
+    handleFinish,
     onCancel,
     batchDel,
-  } = usePage({page,dispatch,delApi:delFunction,getAction:getFunctionData,delApis:delFunctions,seatchFilter})
-
+  } = usePage({page,delApi:delFunction,getAction:getFunctionData,delApis:delFunctions,saveApi:saveFunction,seatchFilter,total})
   const onFinish = async (values) => {
     const {code,description,name,moduleId} = values
     const id = moduleId[moduleId.length-1]
@@ -65,16 +62,7 @@ export default memo(() => {
       module: title,
       id: editFormData.record.id
     }
-    try {
-      await saveFunction(options)
-      setEditModalVisible(false)
-      notification.success({
-        placement: 'bottomLeft bottomRight',
-        message: '保存成功',
-      });
-      dispatch(getFunctionData({pageIndex:1,pageSize:pager.pageSize,filter:seatchFilter}))
-    }catch (e){
-    }
+    handleFinish(options)
   }
  
   const columns = useMemo(()=>([
@@ -112,21 +100,17 @@ export default memo(() => {
     }
   ]),[handleEdit,handleDel])
 
- 
-
   return  <>
           <CommonPage 
             rowSelection = {rowSelection}
             selectedRowKeys = {selectedRowKeys}
+            pagination ={pagination}
+            onTableChange = {onTableChange}
+            handleSearch = {handleSearch}
             batchDel = {batchDel}
-            pager = {pager}
-            setPager = {setPager}
-            seatchFilter = {seatchFilter}
             searchUi = {searchUi}
-            getPageList = {getFunctionData}
             loading = {loading}
             pagedList = {pagedList}
-            total = {total}
             columns = {columns}
             handleAdd = {handleAdd}
             addPermission = {addPermission}

@@ -2,18 +2,18 @@ import React, { useState } from 'react'
 import { Row, Col, Button, Form} from 'antd'
 import { UpOutlined, DownOutlined } from '@ant-design/icons'
 import FormList from 'components/BaseForm'
-import { forwardRef } from 'react'
 
 
-export default forwardRef((props,ref) => {
+export default (props) => {
+  const [form] = Form.useForm()
   const [expand,setExpand] = useState(true)
   const handleReset = ()=>{
-      ref.current.resetFields();
+      form.resetFields();
   }
   return (
     <div>
       <div style={{padding: 10}}>
-      <Form layout ='inline' ref={ref} onFinish={props.onFinish}>
+      <Form layout ='inline' form={form} onFinish={props.onFinish}>
       <Row gutter={24}>
         <div style = {{ display: expand ? 'flex' : 'none' }}>
         <FormList data = {props.data}  />
@@ -24,7 +24,7 @@ export default forwardRef((props,ref) => {
       <Row justify='center'>
         <Col span={24} style={{ textAlign: 'center' }}>
           <span style={{ display: expand ? 'inline' : 'none' }}>
-            <Button type="primary" htmlType="submit" onClick={()=>ref.current.submit()} >查询</Button>
+            <Button type="primary" htmlType="submit" onClick={()=>form.submit()} >查询</Button>
             <Button style={{ marginLeft: 8 }} onClick={handleReset}>
               清空
             </Button>
@@ -38,4 +38,4 @@ export default forwardRef((props,ref) => {
       
     </div>
   );
-})
+}

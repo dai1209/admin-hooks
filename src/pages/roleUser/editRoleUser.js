@@ -1,10 +1,11 @@
-import React, { memo, useState, useMemo } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
-import { notification,Badge } from 'antd';
+import React, { memo, useMemo } from 'react';
+import { useSelector } from 'react-redux'
+import { Badge } from 'antd';
 import { editRoleUser } from 'api';
 import { getUserList } from 'store/module/users/action'
 import schema from 'schema/user';
 import CommonPage from 'containers/CommonPage'
+import { usePage } from 'hooks'
 
 const searchUi = Object.entries(schema.searchUiSchema)
 
@@ -19,8 +20,6 @@ export default memo((props) => {
     email: "",
     roleId: props.record.id
   }),[props.record])
-  const [pager,setPager] = useState(page)
-  const dispatch = useDispatch()
   const pagedList = useSelector(({users}) => users.pagedList)
   const total = useSelector(({users}) => users.total)
 
@@ -70,37 +69,29 @@ export default memo((props) => {
             </span>
         )
     }]
-
+  const {
+    handleSearch,
+    onTableChange,
+    pagination,
+    handleToggle
+  } = usePage({page,getAction:getUserList,seatchFilter,total,toggleApi:editRoleUser})
   const modifyRoleUser = async (record,action) => {
-    await editRoleUser({
+    const options = {
       roleId: props.record.id,
       userId: record.id,
       action,
-  });
-  if (action === 1) {
-      notification.success({
-          placement: 'bottomLeft bottomRight',
-          message: '添加成功',
-      });
-  } else {
-      notification.success({
-          placement: 'bottomLeft bottomRight',
-          message: '移除成功',
-      });
-  }
-  dispatch(getUserList({pageIndex:page.current,pageSize:pager.pageSize,filter:seatchFilter}))
-  }
- 
+    }
+    handleToggle(options)
+}
   return  (<>
     <CommonPage
-      pager = {pager} 
-      setPager = {setPager}
+      handleSearch = {handleSearch}
+      onTableChange = {onTableChange}
+      pagination = {pagination}
       seatchFilter = {seatchFilter}
       searchUi = {searchUi}
-      getPageList = {getUserList}
       // loading = {loading}
       pagedList = {pagedList}
-      total = {total}
       columns = {columns}
     />
   </>)

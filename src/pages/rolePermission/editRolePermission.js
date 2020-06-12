@@ -1,10 +1,6 @@
-import React from 'react';
+import React, {useMemo, useEffect} from 'react';
 import {  Tree } from 'antd';
-
-
-import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useMemo } from 'react';
 import { getMenuFunctionsData } from 'store/module/rolePermission/action'
 
 export default (({record,checkedKeys,setCheckedKeys}) => {
@@ -39,8 +35,6 @@ export default (({record,checkedKeys,setCheckedKeys}) => {
 
   const onCheck = (checkedKeys) => {
     setCheckedKeys(checkedKeys.filter(s=>s.split('-')[0]!=='0'))
-    console.log(checkedKeys);
-    
   }
   
   const tree = (list)=>list.map(item => ({
