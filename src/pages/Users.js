@@ -87,7 +87,7 @@ export default memo(() => {
       }
     }]
   
-  const onFinish = async (values) => {
+  const onFinish = (values) => {
     const options = {...editFormData,...values}
     handleFinish(options)
   }

@@ -39,7 +39,6 @@ class PermissionTest extends React.PureComponent {
         })
     }
     render() {
-        console.log("PermissionTest render")
         return (
             <div>
                 <Row>

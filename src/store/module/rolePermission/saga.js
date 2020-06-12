@@ -8,8 +8,6 @@ import { getMenuFunctions } from 'api'
 function *fetchMenuFuncionsData ({payload}) {
   try{
     const {data} = yield call(getMenuFunctions,payload)
-    console.log(data);
-    
     yield put(changeMenuFunctions(data))
   }catch (e) {
 

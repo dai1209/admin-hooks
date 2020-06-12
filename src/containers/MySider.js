@@ -46,11 +46,7 @@ const MySiderContainer = (props) => {
   },[pathname,initMenu])
 
   const openMenu = v => {
-    console.log('openmenu');
-    
     const parentKeys = util.getParentMenusByName(openAccessMenu, v[v.length - 1]).map(item => item.name);
-    console.log(parentKeys);
-    
     setOpenKeys(parentKeys)
   };
 

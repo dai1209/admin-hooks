@@ -60,11 +60,11 @@ export default memo((props) => {
         width: 120,
         render: (text, record) => (
           record.isAdd === 1 ?
-            <span onClick={() => modifyRoleUser(record, 0)} style={{color:'#f5222d'}} >
+            <span onClick={() => modifyRoleUser(record, 0)} style={{color:'#f5222d',cursor:'pointer'}} >
               移除
             </span>
             :
-            <span onClick={() => modifyRoleUser(record, 1)} style={{color:'cyan'}} >
+            <span onClick={() => modifyRoleUser(record, 1)} style={{color:'cyan',cursor:'pointer'}} >
               添加
             </span>
         )

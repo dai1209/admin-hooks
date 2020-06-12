@@ -10,28 +10,16 @@
       "__index": 0
     },
     {
-      "name": "hooks",
-      "trueName": "react",
-      "email": "123456@136.com",
-      "phone": "123456789",
+      "name": "test",
+      "trueName": "测试",
       "password": "123456",
-      "id": "01de2fed-2273-4752-8904-9df34428b9ed"
+      "id": "54a3488f-3c94-489e-bcd0-3f2631991f5e"
     },
     {
-      "record": {},
-      "id": "6c7973e6-5786-43e4-ad19-1b8646c3e14c",
-      "name": "兽王",
-      "trueName": "0-16",
-      "email": "1234567@163.com",
-      "phone": "123456",
-      "password": "123456"
-    },
-    {
-      "record": {},
-      "id": "22faec5b-6fcf-43f8-bedd-714c36728c67",
-      "name": "超级管理员",
-      "trueName": "react",
-      "password": "123456"
+      "name": "website_admin",
+      "trueName": "网站模块管理员A",
+      "password": "123456",
+      "id": "92e6b921-d820-4ea6-9b57-95b1378c961e"
     }
   ],
   "admin": [
@@ -473,8 +461,8 @@
     {
       "name": "1-用户角色列表",
       "code": "user_role_view",
-      "moduleId": "ad4c1590-a576-463f-b9e6-a6eacc8a8ef0",
-      "module": "文章编辑",
+      "moduleId": 11,
+      "module": "用户角色管理",
       "id": "67b20c33-7e0f-4bd7-b60f-c1468bb87ee1"
     },
     {
@@ -537,65 +525,24 @@
       "id": "9fc587ff-3543-4f58-93ab-15f64d3d19e5",
       "isAdd": 2,
       "__index": 1
-    },
-    {
-      "name": "超级管理员",
-      "code": "role_admin",
-      "id": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "isAdd": 2
-    },
-    {
-      "record": {},
-      "id": "5f055aa1-2a3c-4f8f-8ed4-9fc639e19f1a",
-      "name": "单元测试",
-      "code": "110",
-      "isAdd": 1
     }
   ],
   "roleUser": [
     {
-      "userId": "01de2fed-2273-4752-8904-9df34428b9ed",
+      "userId": "1",
       "roleId": "9fc587ff-3543-4f58-93ab-15f64d3d19e5"
     },
     {
-      "userId": "01de2fed-2273-4752-8904-9df34428b9ed",
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e"
+      "userId": "1",
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7"
+    },
+    {
+      "userId": "54a3488f-3c94-489e-bcd0-3f2631991f5e",
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7"
     },
     {
       "userId": "92e6b921-d820-4ea6-9b57-95b1378c961e",
       "roleId": "9fc587ff-3543-4f58-93ab-15f64d3d19e5"
-    },
-    {
-      "userId": "54a3488f-3c94-489e-bcd0-3f2631991f5e",
-      "roleId": "9fc587ff-3543-4f58-93ab-15f64d3d19e5"
-    },
-    {
-      "userId": "bbbae665-ba5d-4e17-9d2a-b3b5ccfc814c",
-      "roleId": "54a3488f-3c94-489e-bcd0-3f2631991f5e"
-    },
-    {
-      "userId": "bbbae665-ba5d-4e17-9d2a-b3b5ccfc814c",
-      "roleId": "6c7973e6-5786-43e4-ad19-1b8646c3e14c"
-    },
-    {
-      "userId": "6c7973e6-5786-43e4-ad19-1b8646c3e14c",
-      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7"
-    },
-    {
-      "userId": "1",
-      "roleId": "10c991ce-4d4d-4af8-bb9e-a824c4c8d85c"
-    },
-    {
-      "userId": "1",
-      "roleId": "5f055aa1-2a3c-4f8f-8ed4-9fc639e19f1a"
-    },
-    {
-      "userId": "1",
-      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7"
-    },
-    {
-      "userId": "54a3488f-3c94-489e-bcd0-3f2631991f5e",
-      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7"
     }
   ],
   "permission": [
@@ -616,6 +563,624 @@
       "functionId": "8ab3b7b6-921a-4f8f-9bad-2fd106c870e1",
       "moduleId": 3,
       "id": "45ba9138-46ef-4249-9e80-a009ed7f35fc"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2de3ee27-a382-4bbb-8c8f-fa6f73c99d1d",
+      "moduleId": 20,
+      "id": "6b0365da-54d2-49e6-bb28-e129d1bbce1a"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2e1109e4-6963-42d4-9a03-6c9c445ac616",
+      "moduleId": 8,
+      "id": "37f9a594-8cd0-4d32-a6a8-dba712381d73"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2de3ee27-a382-4bbb-8c8f-fa6f73c99d1d",
+      "moduleId": 20,
+      "id": "3320ec95-318e-4110-a5c9-a56093f79d34"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2e1109e4-6963-42d4-9a03-6c9c445ac616",
+      "moduleId": 8,
+      "id": "bc20b079-775d-4947-87ac-aa643bb11998"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "6f3ef7c1-53fb-47b6-8800-0adff147c295",
+      "moduleId": 6,
+      "id": "0fa2b2f1-8cd3-456b-97f4-046ad17076c0"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "3e4b4aae-4b83-427d-b241-d18eb9429996",
+      "moduleId": 9,
+      "id": "43edf58e-4747-4fe9-ae0c-47f6322bc474"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "45dbaa22-90ad-47ba-b773-6bc9901b18d5",
+      "moduleId": 10,
+      "id": "117d3055-4ed1-4899-9de1-d49e0ed9c553"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "67b20c33-7e0f-4bd7-b60f-c1468bb87ee1",
+      "moduleId": 11,
+      "id": "92cf280c-4ac6-4db7-8c04-ee63f58b5cbd"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "34a10659-efd2-4ef8-b2cd-df0cb2269726",
+      "moduleId": 16,
+      "id": "b20e82ef-6bf3-4920-b794-24f247407aec"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "17684882-c610-4007-b357-e783631c059f",
+      "moduleId": 3,
+      "id": "4dbd3459-d0fb-41e1-8515-2fbfb1272909"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "17684882-c610-4007-b357-e783631c059f",
+      "moduleId": 3,
+      "id": "ea4991eb-ada7-48b2-84df-43f74c045d4e"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "17684882-c610-4007-b357-e783631c059f",
+      "moduleId": 3,
+      "id": "9e4d633f-a155-46c1-a1b2-ae6a7b005923"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "17684882-c610-4007-b357-e783631c059f",
+      "moduleId": 3,
+      "id": "254c5a99-d4b8-4a04-b64b-ca5f6eb94359"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "17684882-c610-4007-b357-e783631c059f",
+      "moduleId": 3,
+      "id": "6da2f23f-60b8-4901-bb46-0e371972768a"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2de3ee27-a382-4bbb-8c8f-fa6f73c99d1d",
+      "moduleId": 20,
+      "id": "1391a723-5b17-42b1-bcb7-f137cfdf9e8b"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2e1109e4-6963-42d4-9a03-6c9c445ac616",
+      "moduleId": 8,
+      "id": "129c3502-8acb-4d95-8a32-0f812db4d5a7"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "17684882-c610-4007-b357-e783631c059f",
+      "moduleId": 3,
+      "id": "d4e72a0f-267d-406d-a2f8-d4500259d8e2"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "17684882-c610-4007-b357-e783631c059f",
+      "moduleId": 3,
+      "id": "225b0bde-3d14-431c-af20-ee71f3245823"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2de3ee27-a382-4bbb-8c8f-fa6f73c99d1d",
+      "moduleId": 20,
+      "id": "e2541034-d710-4bf7-8d00-06b1ccdfb82c"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2e1109e4-6963-42d4-9a03-6c9c445ac616",
+      "moduleId": 8,
+      "id": "98ba4bdc-a1df-4921-9e1a-6f3d9d9cefdd"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "6f3ef7c1-53fb-47b6-8800-0adff147c295",
+      "moduleId": 6,
+      "id": "b8ead231-f6f3-4175-9c20-050f2bf21a3b"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "3e4b4aae-4b83-427d-b241-d18eb9429996",
+      "moduleId": 9,
+      "id": "f8afaeb6-e3f7-48f7-b955-717b2a7b5d14"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "45dbaa22-90ad-47ba-b773-6bc9901b18d5",
+      "moduleId": 10,
+      "id": "e3c5d58d-4928-4dac-aa71-d0ebabf7182c"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "67b20c33-7e0f-4bd7-b60f-c1468bb87ee1",
+      "moduleId": 11,
+      "id": "bd6c6b0a-76e5-4e11-9d50-601a81dd7195"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "34a10659-efd2-4ef8-b2cd-df0cb2269726",
+      "moduleId": 16,
+      "id": "4e67bfad-4412-4137-ad4c-2fe1b57b4180"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2de3ee27-a382-4bbb-8c8f-fa6f73c99d1d",
+      "moduleId": 20,
+      "id": "b969af9d-3daa-4e34-914a-f9bb8560bc8d"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2e1109e4-6963-42d4-9a03-6c9c445ac616",
+      "moduleId": 8,
+      "id": "3cbe6e45-1f94-4414-a8e3-930e7e23911e"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2de3ee27-a382-4bbb-8c8f-fa6f73c99d1d",
+      "moduleId": 20,
+      "id": "8fa087cf-18fc-4750-aabe-d1693c6f3636"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2e1109e4-6963-42d4-9a03-6c9c445ac616",
+      "moduleId": 8,
+      "id": "5be0c5dc-fb8d-47fc-979a-acdd5b30b34c"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "6f3ef7c1-53fb-47b6-8800-0adff147c295",
+      "moduleId": 6,
+      "id": "c618a356-685a-4af5-9c9e-5dee8f946f5a"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "3e4b4aae-4b83-427d-b241-d18eb9429996",
+      "moduleId": 9,
+      "id": "7b0608cb-4d9c-46c7-91ba-9e7b9112aa42"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "45dbaa22-90ad-47ba-b773-6bc9901b18d5",
+      "moduleId": 10,
+      "id": "639b9315-fd0b-440d-b027-d6475f3686f0"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "67b20c33-7e0f-4bd7-b60f-c1468bb87ee1",
+      "moduleId": 11,
+      "id": "bbe09c80-62ca-4164-bdab-2d678d0327bb"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "34a10659-efd2-4ef8-b2cd-df0cb2269726",
+      "moduleId": 16,
+      "id": "f45ef774-6d6f-4ee1-8428-05cd8ef9031d"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "17684882-c610-4007-b357-e783631c059f",
+      "moduleId": 3,
+      "id": "975128bb-a08f-4247-9f41-5acea03ced62"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "17684882-c610-4007-b357-e783631c059f",
+      "moduleId": 3,
+      "id": "30aa7e47-8752-405a-9956-a95b25ed865d"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "17684882-c610-4007-b357-e783631c059f",
+      "moduleId": 3,
+      "id": "e247ece8-77fa-4c61-b3df-05656438a77a"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "17684882-c610-4007-b357-e783631c059f",
+      "moduleId": 3,
+      "id": "57698651-789e-4f38-acd4-5ce30aa4ea0f"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "17684882-c610-4007-b357-e783631c059f",
+      "moduleId": 3,
+      "id": "884feeea-5bdc-4f76-a6df-69f164eb0cc1"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2de3ee27-a382-4bbb-8c8f-fa6f73c99d1d",
+      "moduleId": 20,
+      "id": "d1c9d63a-05c5-4b10-a608-76c36afb0341"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2e1109e4-6963-42d4-9a03-6c9c445ac616",
+      "moduleId": 8,
+      "id": "a4bcab5a-faa7-4476-b014-031448ac0ed7"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "17684882-c610-4007-b357-e783631c059f",
+      "moduleId": 3,
+      "id": "deb23b55-98e5-4027-a38d-314ee9cf958b"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "17684882-c610-4007-b357-e783631c059f",
+      "moduleId": 3,
+      "id": "3b404ba0-77fc-415b-84ca-e5b0ec443095"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2de3ee27-a382-4bbb-8c8f-fa6f73c99d1d",
+      "moduleId": 20,
+      "id": "1f478398-09d3-47f5-a3d0-6f379a54207d"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2e1109e4-6963-42d4-9a03-6c9c445ac616",
+      "moduleId": 8,
+      "id": "012e5cc5-24a1-40ed-a93a-f85d50b2a34e"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "6f3ef7c1-53fb-47b6-8800-0adff147c295",
+      "moduleId": 6,
+      "id": "e360e02b-1bc8-43b8-aea8-334c60d962b5"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "3e4b4aae-4b83-427d-b241-d18eb9429996",
+      "moduleId": 9,
+      "id": "db2843f8-8e7a-4527-bee3-0a2a4ffdb92b"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "45dbaa22-90ad-47ba-b773-6bc9901b18d5",
+      "moduleId": 10,
+      "id": "84508ae3-69a6-4030-af9f-0a97a236518e"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "67b20c33-7e0f-4bd7-b60f-c1468bb87ee1",
+      "moduleId": 11,
+      "id": "488285cb-cbcb-44c8-abed-034d6bea44e4"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "34a10659-efd2-4ef8-b2cd-df0cb2269726",
+      "moduleId": 16,
+      "id": "925b003c-a006-4e37-9cb4-25574f6a361b"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "0f46fbe6-ec3d-4851-ae40-58ae94907eb9",
+      "moduleId": 13,
+      "id": "79926428-9d6e-4fd6-88d2-ae8f71d46ee9"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2de3ee27-a382-4bbb-8c8f-fa6f73c99d1d",
+      "moduleId": 20,
+      "id": "77945414-0fc9-40f0-97ec-067ce47a46ef"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2e1109e4-6963-42d4-9a03-6c9c445ac616",
+      "moduleId": 8,
+      "id": "b52a3717-6b1c-4406-bee5-484673a71515"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2de3ee27-a382-4bbb-8c8f-fa6f73c99d1d",
+      "moduleId": 20,
+      "id": "fdcf0f06-042b-42ee-8388-4b0d9b277090"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2e1109e4-6963-42d4-9a03-6c9c445ac616",
+      "moduleId": 8,
+      "id": "d9db26d8-783a-426f-bd06-c2f9215e6dd0"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "6f3ef7c1-53fb-47b6-8800-0adff147c295",
+      "moduleId": 6,
+      "id": "dbc98e61-8013-4477-b805-7cfb4406e147"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "3e4b4aae-4b83-427d-b241-d18eb9429996",
+      "moduleId": 9,
+      "id": "e785d78b-487f-4cdd-a530-c62e7eedd437"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "45dbaa22-90ad-47ba-b773-6bc9901b18d5",
+      "moduleId": 10,
+      "id": "ee9d6363-0d2d-490b-87f7-5b017510685a"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "67b20c33-7e0f-4bd7-b60f-c1468bb87ee1",
+      "moduleId": 11,
+      "id": "622cbd12-f6d1-4141-adf8-e238894bba17"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "34a10659-efd2-4ef8-b2cd-df0cb2269726",
+      "moduleId": 16,
+      "id": "0ee9704b-7dd9-4462-a8ad-84d79440c713"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "17684882-c610-4007-b357-e783631c059f",
+      "moduleId": 3,
+      "id": "c93118f9-5d02-41e1-be5e-59024cccdcc9"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "17684882-c610-4007-b357-e783631c059f",
+      "moduleId": 3,
+      "id": "f6eddd54-0991-456b-bce5-e1ffb8d3e0a3"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "17684882-c610-4007-b357-e783631c059f",
+      "moduleId": 3,
+      "id": "63ae0260-24cd-440d-bbdf-8813dbc8f344"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "17684882-c610-4007-b357-e783631c059f",
+      "moduleId": 3,
+      "id": "e30e97e8-0631-488f-8fa0-a729c059424b"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "17684882-c610-4007-b357-e783631c059f",
+      "moduleId": 3,
+      "id": "97478547-2a48-4c46-abf0-4fa24d48c176"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2de3ee27-a382-4bbb-8c8f-fa6f73c99d1d",
+      "moduleId": 20,
+      "id": "e266e965-979c-4522-a3c7-0216a0de7f01"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2e1109e4-6963-42d4-9a03-6c9c445ac616",
+      "moduleId": 8,
+      "id": "dc9b4d39-a08c-4cf3-a2c7-6f1170b19a7f"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "17684882-c610-4007-b357-e783631c059f",
+      "moduleId": 3,
+      "id": "c1fea3b7-1db3-4b46-bc92-b97123afe4a9"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "17684882-c610-4007-b357-e783631c059f",
+      "moduleId": 3,
+      "id": "55b7475e-14de-4df9-8fbe-4a7583625833"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2de3ee27-a382-4bbb-8c8f-fa6f73c99d1d",
+      "moduleId": 20,
+      "id": "6da28dd5-a3dc-4e1b-9c12-3fc53597f12f"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2e1109e4-6963-42d4-9a03-6c9c445ac616",
+      "moduleId": 8,
+      "id": "e78f00dc-5558-43d5-94be-6cb362f02d12"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "6f3ef7c1-53fb-47b6-8800-0adff147c295",
+      "moduleId": 6,
+      "id": "cf447be7-3a3d-4df9-ae03-c9f47420862b"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "3e4b4aae-4b83-427d-b241-d18eb9429996",
+      "moduleId": 9,
+      "id": "819d82e6-3b19-4c48-abff-5f3e10d4ed21"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "45dbaa22-90ad-47ba-b773-6bc9901b18d5",
+      "moduleId": 10,
+      "id": "34bb82ad-a34b-4573-8eca-3a8d5014fd97"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "67b20c33-7e0f-4bd7-b60f-c1468bb87ee1",
+      "moduleId": 11,
+      "id": "57543adb-d634-4641-97be-a3eae3d068c2"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "34a10659-efd2-4ef8-b2cd-df0cb2269726",
+      "moduleId": 16,
+      "id": "6bf300dc-bb3d-4bd5-858d-fff3770cb85e"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2de3ee27-a382-4bbb-8c8f-fa6f73c99d1d",
+      "moduleId": 20,
+      "id": "9b29d73c-2e7d-4521-bac4-a94eb3c04251"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2e1109e4-6963-42d4-9a03-6c9c445ac616",
+      "moduleId": 8,
+      "id": "485e6316-5161-46c6-a3ad-6004d811f8da"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2de3ee27-a382-4bbb-8c8f-fa6f73c99d1d",
+      "moduleId": 20,
+      "id": "41dd1436-6768-4fe3-bc31-95c8a203ae41"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2e1109e4-6963-42d4-9a03-6c9c445ac616",
+      "moduleId": 8,
+      "id": "415fe305-cf20-4da5-bcb8-7fc54c6d0869"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "6f3ef7c1-53fb-47b6-8800-0adff147c295",
+      "moduleId": 6,
+      "id": "af67ea90-db86-4ab9-9c56-079282e9b577"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "3e4b4aae-4b83-427d-b241-d18eb9429996",
+      "moduleId": 9,
+      "id": "875afba1-6a76-4783-a27b-1f5611962b94"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "45dbaa22-90ad-47ba-b773-6bc9901b18d5",
+      "moduleId": 10,
+      "id": "538f8f87-e0f7-4a25-93e5-8e9fc207950b"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "67b20c33-7e0f-4bd7-b60f-c1468bb87ee1",
+      "moduleId": 11,
+      "id": "c8a8fa51-7eaa-4b5c-9938-e86e9dcf1334"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "34a10659-efd2-4ef8-b2cd-df0cb2269726",
+      "moduleId": 16,
+      "id": "3fbd063f-ba83-4b3e-a737-e8dc28c785a5"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "17684882-c610-4007-b357-e783631c059f",
+      "moduleId": 3,
+      "id": "0307934d-0e54-4cf0-b8bc-74f447c9f7cb"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "17684882-c610-4007-b357-e783631c059f",
+      "moduleId": 3,
+      "id": "f74e6f43-d76c-488c-8e71-b678ab34e377"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "17684882-c610-4007-b357-e783631c059f",
+      "moduleId": 3,
+      "id": "0b0492e4-2866-40f7-887f-bd70ef44b5f9"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "17684882-c610-4007-b357-e783631c059f",
+      "moduleId": 3,
+      "id": "32fac894-e29e-4552-8a95-3b492c500e37"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "17684882-c610-4007-b357-e783631c059f",
+      "moduleId": 3,
+      "id": "c4928b36-45d4-4abf-9f91-9521cd8ee4c6"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2de3ee27-a382-4bbb-8c8f-fa6f73c99d1d",
+      "moduleId": 20,
+      "id": "0a766f12-ee94-4c5c-8850-83cae57ce10b"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2e1109e4-6963-42d4-9a03-6c9c445ac616",
+      "moduleId": 8,
+      "id": "7756537e-4b35-42e6-b205-63c80f7f32e4"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "17684882-c610-4007-b357-e783631c059f",
+      "moduleId": 3,
+      "id": "cea44bc4-2663-4d29-a94a-c008e825336a"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "17684882-c610-4007-b357-e783631c059f",
+      "moduleId": 3,
+      "id": "03a9e323-d4dc-443a-9344-9ccde8d975b5"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2de3ee27-a382-4bbb-8c8f-fa6f73c99d1d",
+      "moduleId": 20,
+      "id": "efef48cb-5c87-451f-9835-6bb25e9a75d8"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "2e1109e4-6963-42d4-9a03-6c9c445ac616",
+      "moduleId": 8,
+      "id": "e1dbc3d3-e88b-48cd-a06d-1dd57e55d45a"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "6f3ef7c1-53fb-47b6-8800-0adff147c295",
+      "moduleId": 6,
+      "id": "0f13f73a-92f4-4cf5-8f15-9ab05efb1863"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "3e4b4aae-4b83-427d-b241-d18eb9429996",
+      "moduleId": 9,
+      "id": "6ea431d5-a1ee-47a7-bb1d-87cf16d020de"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "45dbaa22-90ad-47ba-b773-6bc9901b18d5",
+      "moduleId": 10,
+      "id": "6971fedd-75c0-40a9-9219-a62db6bb5029"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "67b20c33-7e0f-4bd7-b60f-c1468bb87ee1",
+      "moduleId": 11,
+      "id": "7f0aa41f-3c7d-485c-b3fe-4531db2b03da"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "34a10659-efd2-4ef8-b2cd-df0cb2269726",
+      "moduleId": 16,
+      "id": "cb254647-7598-4a3d-9011-72ec878b6f2a"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "0f46fbe6-ec3d-4851-ae40-58ae94907eb9",
+      "moduleId": 13,
+      "id": "98840ca7-82dd-4fd5-96ec-dace1812efed"
+    },
+    {
+      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
+      "functionId": "d07dbc07-9692-41bb-83fb-7521052ed1b5",
+      "moduleId": 14,
+      "id": "42930175-20b9-42cd-8b29-286125632e17"
     },
     {
       "roleId": "9fc587ff-3543-4f58-93ab-15f64d3d19e5",
@@ -670,462 +1235,6 @@
       "functionId": "8ab3b7b6-921a-4f8f-9bad-2fd106c870e1",
       "moduleId": 3,
       "id": "8671a022-a1f2-41bd-bd12-42c6524f3a63"
-    },
-    {
-      "roleId": "5f055aa1-2a3c-4f8f-8ed4-9fc639e19f1a",
-      "functionId": "17684882-c610-4007-b357-e783631c059f",
-      "moduleId": 3,
-      "id": "fa866485-2cbe-4d03-8302-0cf01c32b755"
-    },
-    {
-      "roleId": "5f055aa1-2a3c-4f8f-8ed4-9fc639e19f1a",
-      "functionId": "2817154d-2df0-4875-ac26-5c3dd27061ad",
-      "moduleId": 3,
-      "id": "68f424f7-c6ee-44cc-a227-145e1fa4a504"
-    },
-    {
-      "roleId": "5f055aa1-2a3c-4f8f-8ed4-9fc639e19f1a",
-      "functionId": "8ab3b7b6-921a-4f8f-9bad-2fd106c870e1",
-      "moduleId": 3,
-      "id": "7e5db1ba-e7a7-48ed-9095-63bb71bef11b"
-    },
-    {
-      "roleId": "5f055aa1-2a3c-4f8f-8ed4-9fc639e19f1a",
-      "functionId": "67b20c33-7e0f-4bd7-b60f-c1468bb87ee1",
-      "moduleId": "ad4c1590-a576-463f-b9e6-a6eacc8a8ef0",
-      "id": "0efca02f-2da3-4574-9f0a-7770188383e3"
-    },
-    {
-      "roleId": "5f055aa1-2a3c-4f8f-8ed4-9fc639e19f1a",
-      "functionId": "6f3ef7c1-53fb-47b6-8800-0adff147c295",
-      "moduleId": 6,
-      "id": "92f388a1-3509-4265-80b5-763fea3b19db"
-    },
-    {
-      "roleId": "5f055aa1-2a3c-4f8f-8ed4-9fc639e19f1a",
-      "functionId": "f8297890-5a35-4704-b901-6b25074beb43",
-      "moduleId": 6,
-      "id": "8895d187-19f6-4534-80b8-66de19cec91f"
-    },
-    {
-      "roleId": "5f055aa1-2a3c-4f8f-8ed4-9fc639e19f1a",
-      "functionId": "2e1109e4-6963-42d4-9a03-6c9c445ac616",
-      "moduleId": 8,
-      "id": "1961d0c5-4c1d-4778-9fac-e9aa2ba8dc54"
-    },
-    {
-      "roleId": "5f055aa1-2a3c-4f8f-8ed4-9fc639e19f1a",
-      "functionId": "b49dd81d-0561-43dc-b3fb-1e9fe4262ecd",
-      "moduleId": 8,
-      "id": "eb75b7f3-877a-4dca-b79d-558fbf7e763e"
-    },
-    {
-      "roleId": "5f055aa1-2a3c-4f8f-8ed4-9fc639e19f1a",
-      "functionId": "77562a51-1164-4a59-8599-ae01a6a16dd8",
-      "moduleId": 8,
-      "id": "ed86a202-31e3-4006-9295-b57e6adcda39"
-    },
-    {
-      "roleId": "5f055aa1-2a3c-4f8f-8ed4-9fc639e19f1a",
-      "functionId": "2de3ee27-a382-4bbb-8c8f-fa6f73c99d1d",
-      "moduleId": 20,
-      "id": "1b6a520d-64e7-41aa-9fe6-90dfac271073"
-    },
-    {
-      "roleId": "5f055aa1-2a3c-4f8f-8ed4-9fc639e19f1a",
-      "functionId": "1ced4e95-8e7c-483a-81e0-0bd305270e44",
-      "moduleId": 20,
-      "id": "3e12596e-680e-4c0c-9d26-9827c884d0a1"
-    },
-    {
-      "roleId": "5f055aa1-2a3c-4f8f-8ed4-9fc639e19f1a",
-      "functionId": "e7da5956-c711-437e-816e-7854ae0aa19e",
-      "moduleId": 20,
-      "id": "1ab2ae80-7aaa-4104-b5a8-603a6ad0a8cb"
-    },
-    {
-      "roleId": "5f055aa1-2a3c-4f8f-8ed4-9fc639e19f1a",
-      "functionId": "3e4b4aae-4b83-427d-b241-d18eb9429996",
-      "moduleId": 9,
-      "id": "216441e1-9b21-4338-8cb1-d32a0d94b6a8"
-    },
-    {
-      "roleId": "5f055aa1-2a3c-4f8f-8ed4-9fc639e19f1a",
-      "functionId": "a5dcc97d-ad44-4a8d-b669-3d3fbefd5332",
-      "moduleId": 9,
-      "id": "469cb7fe-eb77-4a08-8b03-882b6c00d87b"
-    },
-    {
-      "roleId": "5f055aa1-2a3c-4f8f-8ed4-9fc639e19f1a",
-      "functionId": "45dbaa22-90ad-47ba-b773-6bc9901b18d5",
-      "moduleId": 10,
-      "id": "856fc64a-e92a-4613-b68a-cfb1bbcc65e4"
-    },
-    {
-      "roleId": "5f055aa1-2a3c-4f8f-8ed4-9fc639e19f1a",
-      "functionId": "3ccac00a-94e1-48b8-bd53-0d1acf8bfd89",
-      "moduleId": 10,
-      "id": "1b50ea1f-e52d-4a9b-8871-e94a68f90292"
-    },
-    {
-      "roleId": "5f055aa1-2a3c-4f8f-8ed4-9fc639e19f1a",
-      "functionId": "869d84a5-8b4b-4ea9-90cb-eaefc5e11f96",
-      "moduleId": 11,
-      "id": "b4000273-3433-48ff-b2e9-90282964b3c9"
-    },
-    {
-      "roleId": "5f055aa1-2a3c-4f8f-8ed4-9fc639e19f1a",
-      "functionId": "0f46fbe6-ec3d-4851-ae40-58ae94907eb9",
-      "moduleId": 13,
-      "id": "efcd5427-6a0b-4a5e-b457-05442f08d807"
-    },
-    {
-      "roleId": "5f055aa1-2a3c-4f8f-8ed4-9fc639e19f1a",
-      "functionId": "d07dbc07-9692-41bb-83fb-7521052ed1b5",
-      "moduleId": 14,
-      "id": "ec9a14b3-5f39-44e4-a969-e312a8754ee2"
-    },
-    {
-      "roleId": "5f055aa1-2a3c-4f8f-8ed4-9fc639e19f1a",
-      "functionId": "34a10659-efd2-4ef8-b2cd-df0cb2269726",
-      "moduleId": 16,
-      "id": "5d2d311a-ab44-48be-8065-65bb8e374e2e"
-    },
-    {
-      "roleId": "5f055aa1-2a3c-4f8f-8ed4-9fc639e19f1a",
-      "functionId": "b91fc694-0e4e-4ea5-8d0e-2ba5aafd9445",
-      "moduleId": 16,
-      "id": "b408f8f5-0c22-4a2f-8f94-1444941adb6f"
-    },
-    {
-      "roleId": "5f055aa1-2a3c-4f8f-8ed4-9fc639e19f1a",
-      "functionId": "9a97e2bf-900f-4a11-b177-543551b48415",
-      "moduleId": 16,
-      "id": "a25df5af-b5a8-4cc5-b8a9-7ec459969144"
-    },
-    {
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "functionId": "8ab3b7b6-921a-4f8f-9bad-2fd106c870e1",
-      "moduleId": 3,
-      "id": "0ebedf29-95ce-4da3-b197-707320660566"
-    },
-    {
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "functionId": "2817154d-2df0-4875-ac26-5c3dd27061ad",
-      "moduleId": 3,
-      "id": "e65313f4-e34a-456d-9199-3eee082a9396"
-    },
-    {
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "functionId": "17684882-c610-4007-b357-e783631c059f",
-      "moduleId": 3,
-      "id": "05c0132a-778b-4b31-9b0f-3e13f79f7c11"
-    },
-    {
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "functionId": "67b20c33-7e0f-4bd7-b60f-c1468bb87ee1",
-      "moduleId": "ad4c1590-a576-463f-b9e6-a6eacc8a8ef0",
-      "id": "1038a71a-379b-487a-b77f-d043496227e9"
-    },
-    {
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "functionId": "6f3ef7c1-53fb-47b6-8800-0adff147c295",
-      "moduleId": 6,
-      "id": "31ad9966-038e-4f6b-a38a-53c53c18342c"
-    },
-    {
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "functionId": "f8297890-5a35-4704-b901-6b25074beb43",
-      "moduleId": 6,
-      "id": "725a47ec-2b66-4c79-9f9a-07da1d8a7beb"
-    },
-    {
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "functionId": "2e1109e4-6963-42d4-9a03-6c9c445ac616",
-      "moduleId": 8,
-      "id": "a7da0f03-e4cf-4015-ae1a-853644b1dcfa"
-    },
-    {
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "functionId": "b49dd81d-0561-43dc-b3fb-1e9fe4262ecd",
-      "moduleId": 8,
-      "id": "317bcb81-ec1e-40ed-8a47-daf2843ab1ac"
-    },
-    {
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "functionId": "77562a51-1164-4a59-8599-ae01a6a16dd8",
-      "moduleId": 8,
-      "id": "cf50db15-6350-43ea-9a65-9962a564d1d7"
-    },
-    {
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "functionId": "2de3ee27-a382-4bbb-8c8f-fa6f73c99d1d",
-      "moduleId": 20,
-      "id": "96cf5063-8f49-4897-abd9-d0e08c73f619"
-    },
-    {
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "functionId": "1ced4e95-8e7c-483a-81e0-0bd305270e44",
-      "moduleId": 20,
-      "id": "8f1d9d07-6906-40ee-81da-51d84b92a8ce"
-    },
-    {
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "functionId": "e7da5956-c711-437e-816e-7854ae0aa19e",
-      "moduleId": 20,
-      "id": "e1aaf559-c059-4cb6-b0df-58fed6aa8cd8"
-    },
-    {
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "functionId": "3e4b4aae-4b83-427d-b241-d18eb9429996",
-      "moduleId": 9,
-      "id": "7d39a47b-2331-4ef2-908b-0c9b55797698"
-    },
-    {
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "functionId": "a5dcc97d-ad44-4a8d-b669-3d3fbefd5332",
-      "moduleId": 9,
-      "id": "33d06241-d925-44d8-ac58-e58b58679047"
-    },
-    {
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "functionId": "45dbaa22-90ad-47ba-b773-6bc9901b18d5",
-      "moduleId": 10,
-      "id": "d614291e-220d-42b5-a422-84a5cc35da1c"
-    },
-    {
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "functionId": "3ccac00a-94e1-48b8-bd53-0d1acf8bfd89",
-      "moduleId": 10,
-      "id": "9e778ae1-1b3d-4305-afdf-92df012b5afc"
-    },
-    {
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "functionId": "869d84a5-8b4b-4ea9-90cb-eaefc5e11f96",
-      "moduleId": 11,
-      "id": "01bb4417-0dd9-4b02-8486-1ade0912cd02"
-    },
-    {
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "functionId": "0f46fbe6-ec3d-4851-ae40-58ae94907eb9",
-      "moduleId": 13,
-      "id": "9232d490-e809-47df-b24a-3eaf02caecc8"
-    },
-    {
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "functionId": "d07dbc07-9692-41bb-83fb-7521052ed1b5",
-      "moduleId": 14,
-      "id": "36e3e004-a9a8-491c-a0a0-ba03e0f50866"
-    },
-    {
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "functionId": "34a10659-efd2-4ef8-b2cd-df0cb2269726",
-      "moduleId": 16,
-      "id": "746d823e-46eb-487a-886d-932a218381ce"
-    },
-    {
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "functionId": "b91fc694-0e4e-4ea5-8d0e-2ba5aafd9445",
-      "moduleId": 16,
-      "id": "619bb26c-9a1e-4d08-a380-f06ac57d8c16"
-    },
-    {
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "functionId": "9a97e2bf-900f-4a11-b177-543551b48415",
-      "moduleId": 16,
-      "id": "fb6518cf-9366-4df3-b836-2301124743c1"
-    },
-    {
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "functionId": "6bcf5fd6-3677-45ac-aa3b-7b016ef20f71",
-      "moduleId": 0,
-      "id": "aebeddb0-5c00-4cef-9eab-e98dbbaa0c56"
-    },
-    {
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "functionId": "2d6880bd-d02f-42fb-b000-d558fc1b8919",
-      "moduleId": 0,
-      "id": "beacf03e-34c0-43af-8a83-486390d6026b"
-    },
-    {
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "functionId": "c81df8fa-614d-4b01-b367-c42ec2621eaf",
-      "moduleId": 0,
-      "id": "5ac04bb3-d343-4cfa-829c-a1065a8af626"
-    },
-    {
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "functionId": "15d87370-2205-4066-9785-330211fa9af9",
-      "moduleId": 0,
-      "id": "ff849397-597c-41ec-97fb-e94471b81e19"
-    },
-    {
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "functionId": "5da38c51-f65c-4e6f-82d4-5e9d746873b2",
-      "moduleId": 0,
-      "id": "bdac20aa-f2ac-46af-8fe6-6abaee608ec8"
-    },
-    {
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "functionId": "18",
-      "moduleId": 0,
-      "id": "3c785e78-2da5-4462-b654-ae4aa85d333c"
-    },
-    {
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "functionId": "19",
-      "moduleId": 0,
-      "id": "61894cb8-7c45-4f3d-8278-b141d9a4326b"
-    },
-    {
-      "roleId": "c62102de-aa75-40f6-a1ff-46b69ca4294e",
-      "functionId": "467da095-6059-4d89-a19a-689850d8aebf",
-      "moduleId": "ef59de52-9995-49bc-a8ab-fb41093639c9",
-      "id": "c2ee172b-437b-4655-8e3a-983b3f392172"
-    },
-    {
-      "roleId": 1,
-      "functionId": "2de3ee27-a382-4bbb-8c8f-fa6f73c99d1d",
-      "moduleId": 20,
-      "id": "dbfbe7c1-f27d-49a6-aba3-712c46dbb8c3"
-    },
-    {
-      "roleId": 1,
-      "functionId": "2e1109e4-6963-42d4-9a03-6c9c445ac616",
-      "moduleId": 8,
-      "id": "8096d2a4-ba90-4a21-a2ab-8560493655e2"
-    },
-    {
-      "roleId": 1,
-      "functionId": "6f3ef7c1-53fb-47b6-8800-0adff147c295",
-      "moduleId": 6,
-      "id": "23b4d054-de02-42e2-bf8f-450225dd04f3"
-    },
-    {
-      "roleId": 1,
-      "functionId": "3e4b4aae-4b83-427d-b241-d18eb9429996",
-      "moduleId": 9,
-      "id": "6273ad05-8e8d-4158-b28d-ed438b33cd3d"
-    },
-    {
-      "roleId": 1,
-      "functionId": "45dbaa22-90ad-47ba-b773-6bc9901b18d5",
-      "moduleId": 10,
-      "id": "ae8ce09f-fc54-4cfe-988c-b9f54d22b392"
-    },
-    {
-      "roleId": 1,
-      "functionId": "67b20c33-7e0f-4bd7-b60f-c1468bb87ee1",
-      "moduleId": "ad4c1590-a576-463f-b9e6-a6eacc8a8ef0",
-      "id": "f4d72d30-272e-4b57-905a-761182e1da06"
-    },
-    {
-      "roleId": 1,
-      "functionId": "34a10659-efd2-4ef8-b2cd-df0cb2269726",
-      "moduleId": 16,
-      "id": "5f12cb2b-cfac-484d-a36e-59cbf7383f7b"
-    },
-    {
-      "roleId": 1,
-      "functionId": "17684882-c610-4007-b357-e783631c059f",
-      "moduleId": 3,
-      "id": "65ef584b-fc03-45a2-b6f7-055785fd200f"
-    },
-    {
-      "roleId": 1,
-      "functionId": "0f46fbe6-ec3d-4851-ae40-58ae94907eb9",
-      "moduleId": 13,
-      "id": "8aac2a11-7983-4300-85c6-56b06ba8a604"
-    },
-    {
-      "roleId": 1,
-      "functionId": "d07dbc07-9692-41bb-83fb-7521052ed1b5",
-      "moduleId": 14,
-      "id": "8f6b5d86-ebfa-43e7-a22c-48b7ddfd1785"
-    },
-    {
-      "roleId": 1,
-      "functionId": "2817154d-2df0-4875-ac26-5c3dd27061ad",
-      "moduleId": 3,
-      "id": "3029e1fe-9e34-4591-acd1-2feb2783730c"
-    },
-    {
-      "roleId": 1,
-      "functionId": "8ab3b7b6-921a-4f8f-9bad-2fd106c870e1",
-      "moduleId": 3,
-      "id": "389f8e14-55c8-4670-b9a3-d9ed8f571fd5"
-    },
-    {
-      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
-      "functionId": "2de3ee27-a382-4bbb-8c8f-fa6f73c99d1d",
-      "moduleId": 20,
-      "id": "ce8271b2-a207-4295-8267-fceeaec2fadd"
-    },
-    {
-      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
-      "functionId": "2e1109e4-6963-42d4-9a03-6c9c445ac616",
-      "moduleId": 8,
-      "id": "89656b78-aabd-45a4-8912-0fb58b0b10f7"
-    },
-    {
-      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
-      "functionId": "6f3ef7c1-53fb-47b6-8800-0adff147c295",
-      "moduleId": 6,
-      "id": "a28bc65a-ef93-41f6-acee-e166028f3b08"
-    },
-    {
-      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
-      "functionId": "3e4b4aae-4b83-427d-b241-d18eb9429996",
-      "moduleId": 9,
-      "id": "fc65c01f-dd36-4459-89f4-03f64b2188a4"
-    },
-    {
-      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
-      "functionId": "45dbaa22-90ad-47ba-b773-6bc9901b18d5",
-      "moduleId": 10,
-      "id": "539d71b3-cb67-4749-9820-3d6dd8a09440"
-    },
-    {
-      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
-      "functionId": "67b20c33-7e0f-4bd7-b60f-c1468bb87ee1",
-      "moduleId": "ad4c1590-a576-463f-b9e6-a6eacc8a8ef0",
-      "id": "74db15f5-7819-4cea-909a-0272486c0d97"
-    },
-    {
-      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
-      "functionId": "34a10659-efd2-4ef8-b2cd-df0cb2269726",
-      "moduleId": 16,
-      "id": "d2aa17ca-fe67-4f78-8e6c-ed8492658a4a"
-    },
-    {
-      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
-      "functionId": "17684882-c610-4007-b357-e783631c059f",
-      "moduleId": 3,
-      "id": "c6f866a1-f8a5-4f23-8190-5bd8003b913f"
-    },
-    {
-      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
-      "functionId": "0f46fbe6-ec3d-4851-ae40-58ae94907eb9",
-      "moduleId": 13,
-      "id": "e9cf9b2b-1cf8-4d97-8257-0593082a633c"
-    },
-    {
-      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
-      "functionId": "d07dbc07-9692-41bb-83fb-7521052ed1b5",
-      "moduleId": 14,
-      "id": "ecb00d29-2c48-444c-8ddb-c3dd8b602ee2"
-    },
-    {
-      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
-      "functionId": "8ab3b7b6-921a-4f8f-9bad-2fd106c870e1",
-      "moduleId": 3,
-      "id": "9964636d-3549-4854-b2ea-8661963dbec4"
-    },
-    {
-      "roleId": "40af8f42-3b18-410c-9fc2-aba8158e92d7",
-      "functionId": "2817154d-2df0-4875-ac26-5c3dd27061ad",
-      "moduleId": 3,
-      "id": "f6e1b2a1-b09c-4720-9d2b-029b1f6a4eb3"
     }
   ],
   "post": [

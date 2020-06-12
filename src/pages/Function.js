@@ -50,7 +50,7 @@ export default memo(() => {
     onCancel,
     batchDel,
   } = usePage({page,delApi:delFunction,getAction:getFunctionData,delApis:delFunctions,saveApi:saveFunction,seatchFilter,total})
-  const onFinish = async (values) => {
+  const onFinish = (values) => {
     const {code,description,name,moduleId} = values
     const id = moduleId[moduleId.length-1]
     const { title } = util.findTreeNode(menuList,'id', id)

@@ -23,7 +23,6 @@ class Auth extends Controller {
     const token = jwt.sign({
       userId: user.id,
     }, publicKey, { expiresIn: '7d' });
-    console.log(token);
     return responseTemplate.success(ctx, {
       accessToken: token,
     });

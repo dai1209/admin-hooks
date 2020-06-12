@@ -62,9 +62,6 @@ export default memo(() => {
             角色列表
           </span>
     }]
-  //   searchUi, pagination,onTableChange,batchDel,selectedRowKeys,rowSelection,
-  // loading,pagedList,columns, 
-  // handleSearch, addPermission,handleAdd,deletPermission
 
   return  (<>
     <CommonPage

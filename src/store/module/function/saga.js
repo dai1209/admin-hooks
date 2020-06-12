@@ -6,7 +6,6 @@ import { GET_FUNCTION_DATA,getFunctionDataSuccess, changeLoading} from './action
 
 function *fetchFunctionList ({payload}) {
   try{
-    console.log(payload)
     yield put(changeLoading(true))
    const { data } = yield call(getFunctionPagedList,payload)
    yield put(getFunctionDataSuccess(data)) 

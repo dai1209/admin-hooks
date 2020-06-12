@@ -33,7 +33,7 @@ export default memo(({history}) => {
     <div className="login-container">
       <canvas id="noise-canvas"></canvas>
       <Row type="flex" justify="center" align="middle">
-        <Col>
+        <Col xl={{span:7}}>
           <Card
             hoverable
             bordered={false}

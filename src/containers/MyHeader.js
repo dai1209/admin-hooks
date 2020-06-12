@@ -78,7 +78,7 @@ const MyHeader = memo((props) => {
         <Col xs={8} sm={4} md={2} lg={1} xl={2} style={{ textAlign: 'right' }}>
           <ul className="top-nav" style={{ lineHeight: '65px' }}>
             <li>
-              <a className="item" href="https://github.com" target={"_blank"}>
+              <a className="item" href="https://github.com/dai1209/admin-hooks" target={"_blank"}>
                 <GithubOutlined />
               </a>
             </li>

@@ -7,8 +7,6 @@ import { getUserPagedList } from "api";
 function *fetchUserList({payload}) {
   try {
     const { data } = yield call(getUserPagedList,payload)
-    console.log(data);
-    
     yield put(getUserListSuccess(data))
   }catch (e){
 

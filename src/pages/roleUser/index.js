@@ -53,7 +53,6 @@ export default memo(() => {
         </span>
     }]
 
-
   return  (<>
     <CommonPage
       handleSearch = {handleSearch}
